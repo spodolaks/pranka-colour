@@ -1,0 +1,367 @@
+<title>Pranka Colour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#e7e9e6; --panel:#f3f5f1; --sunk:#dcdfdb;
+  --ink:#14171a; --ink2:#586064; --ink3:#828a8c;
+  --rule:#c8cec9; --rule2:#b2b9b4;
+  --accent:#9e3a6c; --accent-soft:#ecd8e3;
+  --frame:#101211;
+  --maxw:1180px; --read:64ch;
+  --f-body:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-read:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono","SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0f1112; --panel:#171a1b; --sunk:#090b0b;
+    --ink:#e7eae7; --ink2:#99a1a3; --ink3:#727a7c;
+    --rule:#262b2c; --rule2:#333939;
+    --accent:#dd80ac; --accent-soft:#38222e;
+    --frame:#000;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0f1112; --panel:#171a1b; --sunk:#090b0b;
+  --ink:#e7eae7; --ink2:#99a1a3; --ink3:#727a7c;
+  --rule:#262b2c; --rule2:#333939;
+  --accent:#dd80ac; --accent-soft:#38222e;
+  --frame:#000;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font:400 16px/1.6 var(--f-body);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; height:auto; display:block}
+a{color:inherit}
+.mono{font-family:var(--f-mono); font-variant-numeric:tabular-nums}
+.wrap{max-width:var(--maxw); margin:0 auto; padding-inline:22px}
+
+
+/* ---------- masthead ---------- */
+.mast{border-bottom:1px solid var(--rule)}
+.mast .wrap{padding-block:clamp(38px,7vw,74px) 30px}
+.eyebrow{
+  font:500 11px/1.5 var(--f-mono); letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink2); margin:0 0 20px;
+}
+.eyebrow b{color:var(--accent); font-weight:500}
+h1{
+  font-size:clamp(40px,7.6vw,74px); line-height:1.02; margin:0 0 .34em;
+  font-family:var(--f-body); font-weight:700; letter-spacing:-.033em; text-wrap:balance;
+}
+.lede{
+  font-weight:400; font-size:clamp(17px,2.1vw,21px); line-height:1.48; color:var(--ink);
+  max-width:40ch; margin:0 0 30px; letter-spacing:-.012em;
+}
+.lede b{font-weight:600; color:var(--accent)}
+
+.links{display:flex; flex-wrap:wrap; gap:9px; margin:0; padding:0; list-style:none}
+.links a{
+  display:inline-flex; align-items:baseline; gap:8px; text-decoration:none;
+  border:1px solid var(--rule2); padding:9px 15px; background:var(--panel);
+  font:500 12.5px/1 var(--f-body); letter-spacing:.01em;
+  transition:border-color .16s, color .16s;
+}
+.links a i{font:400 11px/1 var(--f-mono); font-style:normal; color:var(--ink3)}
+.links a:hover{border-color:var(--accent); color:var(--accent)}
+.links a:hover i{color:var(--accent)}
+
+/* ---------- capability strip ---------- */
+.scope{border-bottom:1px solid var(--rule); background:var(--panel)}
+.scope .wrap{
+  padding-block:30px; display:grid; gap:26px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+.scope h4{
+  font:500 11px/1 var(--f-mono); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink3); margin:0 0 12px; padding-bottom:9px; border-bottom:1px solid var(--rule);
+}
+.scope ul{margin:0; padding:0; list-style:none; font-size:14.5px; line-height:1.5}
+.scope li{padding:5px 0 5px 17px; position:relative; color:var(--ink2)}
+.scope li::before{content:""; position:absolute; left:0; top:.78em; width:7px; height:1px; background:var(--rule2)}
+.scope li b{color:var(--ink); font-weight:600}
+.scope .hi li::before{background:var(--accent)}
+
+/* ---------- nav ---------- */
+.toc{
+  border-bottom:1px solid var(--rule); position:sticky; top:env(safe-area-inset-top,0px); z-index:5;
+  background:color-mix(in srgb, var(--ground) 92%, transparent); backdrop-filter:blur(8px);
+}
+.toc .wrap{display:flex; overflow-x:auto; scrollbar-width:none}
+.toc .wrap::-webkit-scrollbar{display:none}
+.toc a{
+  white-space:nowrap; text-decoration:none; padding:13px 0 12px; margin-right:24px;
+  font:500 11.5px/1 var(--f-mono); letter-spacing:.05em; text-transform:uppercase; color:var(--ink2);
+  border-bottom:2px solid transparent; transition:color .16s, border-color .16s;
+}
+.toc a:hover{color:var(--accent); border-bottom-color:var(--accent)}
+
+/* ---------- chapters ---------- */
+.chapter{border-bottom:1px solid var(--rule); scroll-margin-top:58px}
+.chead{max-width:var(--maxw); margin:0 auto; padding:clamp(44px,7vw,78px) 22px clamp(24px,4vw,38px)}
+.idx{display:block; font:500 11.5px/1 var(--f-mono); letter-spacing:.2em; color:var(--accent); margin-bottom:15px}
+.chapter h2{
+  font-size:clamp(26px,3.8vw,38px); line-height:1.08; margin:0 0 .55em; max-width:20ch;
+  font-family:var(--f-body); font-weight:700; letter-spacing:-.028em; text-wrap:balance;
+}
+.intro{
+  margin:0; max-width:var(--read); color:var(--ink2);
+  font-weight:400; font-size:16.5px; line-height:1.64; letter-spacing:-.005em;
+}
+.intro em{color:var(--ink); font-style:normal; font-weight:600}
+.intro .mono{font-size:15px; color:var(--accent); font-weight:400}
+
+/* ---------- case studies ---------- */
+.casehead{
+  max-width:var(--maxw); margin:0 auto;
+  padding:clamp(10px,2vw,18px) 22px clamp(20px,3vw,28px);
+}
+.casehead .tagline{
+  display:inline-block; font:500 10.5px/1 var(--f-mono); letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent); background:var(--accent-soft);
+  padding:7px 10px; margin-bottom:14px;
+}
+.casehead h3{
+  font-size:clamp(19px,2.5vw,25px); line-height:1.18; font-weight:700;
+  letter-spacing:-.024em; margin:0 0 .5em; max-width:24ch;
+}
+.casehead p{margin:0; max-width:var(--read); font-size:15.5px; line-height:1.62; color:var(--ink2)}
+.chapter .casehead + .work{padding-top:0}
+.work + .casehead{
+  padding-top:clamp(22px,3.4vw,34px); position:relative;
+}
+.work + .casehead::before{
+  content:""; position:absolute; top:0; left:22px; right:22px; height:1px; background:var(--rule);
+}
+
+/* ---------- work blocks ---------- */
+.work{
+  max-width:var(--maxw); margin:0 auto; padding:0 22px clamp(40px,6vw,62px);
+  display:grid; gap:clamp(18px,2.6vw,32px);
+  grid-template-columns:minmax(0,1.62fr) minmax(0,1fr); align-items:start;
+}
+.work.wide{grid-template-columns:minmax(0,1fr); gap:20px}
+.work.wide .meta{max-width:var(--read)}
+@media (max-width:880px){ .work{grid-template-columns:minmax(0,1fr)} }
+
+.meta h3{
+  font:500 12px/1.35 var(--f-mono); letter-spacing:.07em; text-transform:uppercase;
+  margin:0 0 13px; color:var(--ink); padding-bottom:11px; border-bottom:1px solid var(--rule);
+}
+.reads{list-style:none; margin:0 0 14px; padding:0; display:flex; flex-wrap:wrap; gap:6px}
+.reads li{
+  font:400 11.5px/1 var(--f-mono); padding:6px 9px; color:var(--accent); background:var(--accent-soft);
+}
+.meta p{margin:0; font-size:14.5px; line-height:1.65; color:var(--ink2)}
+
+/* ---------- comparison ---------- */
+.cmp{position:relative; background:var(--frame); overflow:hidden}
+.cmp.solo img{width:100%}
+.cmp.slider{touch-action:pan-y; cursor:ew-resize}
+.cmp.slider img{width:100%}
+.cmp.slider .rev{position:absolute; inset:0; clip-path:inset(0 0 0 var(--p,52%))}
+.cmp.slider .rev img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.cmp.slider .bar{
+  position:absolute; top:0; bottom:0; left:var(--p,52%); width:2px; margin-left:-1px;
+  background:#fff; box-shadow:0 0 0 1px rgba(0,0,0,.34); pointer-events:none;
+}
+.cmp.slider .grip{
+  position:absolute; top:50%; left:50%; width:38px; height:38px; margin:-19px 0 0 -19px;
+  border:2px solid #fff; border-radius:50%; background:rgba(12,14,13,.32);
+  box-shadow:0 0 0 1px rgba(0,0,0,.3);
+}
+.cmp.slider .grip::before,.cmp.slider .grip::after{
+  content:""; position:absolute; top:50%; width:0; height:0; margin-top:-5px;
+  border-top:5px solid transparent; border-bottom:5px solid transparent;
+}
+.cmp.slider .grip::before{left:8px; border-right:6px solid #fff}
+.cmp.slider .grip::after{right:8px; border-left:6px solid #fff}
+.cmp.slider input[type=range]{
+  position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0;
+  cursor:ew-resize; -webkit-appearance:none; appearance:none; background:transparent;
+}
+.cmp.slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; width:44px; height:100px}
+.cmp.slider input[type=range]::-moz-range-thumb{width:44px; height:100px; border:0; background:transparent}
+.cmp.slider:focus-within{outline:2px solid var(--accent); outline-offset:3px}
+.tag{
+  position:absolute; top:11px; font:500 10px/1 var(--f-mono); letter-spacing:.13em;
+  text-transform:uppercase; color:#f2f2f0; background:rgba(10,12,11,.68); padding:6px 8px;
+  pointer-events:none;
+}
+.tag.l{left:11px} .tag.r{right:11px}
+
+.cmp.duo{
+  display:grid; grid-template-columns:1fr 1fr; gap:2px;
+  background:var(--rule2); align-items:stretch;
+}
+.cmp.duo figure{
+  margin:0; position:relative; background:var(--frame); line-height:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.cmp.duo img{width:100%; height:auto}
+.cmp.duo figcaption{
+  position:absolute; top:11px; left:11px; font:500 10px/1 var(--f-mono); letter-spacing:.13em;
+  text-transform:uppercase; color:#f2f2f0; background:rgba(10,12,11,.68); padding:6px 8px;
+}
+
+/* ---------- process + contact ---------- */
+.process .wrap{padding-block:clamp(46px,7vw,80px)}
+.process h2{
+  font-size:clamp(24px,3.4vw,33px); line-height:1.1; margin:0 0 32px;
+  font-weight:700; letter-spacing:-.028em;
+}
+.steps{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule); margin-bottom:42px}
+@media (min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--panel); padding:24px 22px}
+.step .n{font:500 11px/1 var(--f-mono); letter-spacing:.2em; color:var(--accent); display:block; margin-bottom:14px}
+.step h3{font:600 15px/1.35 var(--f-body); margin:0 0 9px}
+.step p{margin:0; font-size:14px; line-height:1.6; color:var(--ink2)}
+
+.closing{display:grid; gap:30px; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); align-items:start}
+.closing h3{
+  font-size:clamp(20px,2.7vw,27px); line-height:1.16; margin:0 0 14px; max-width:19ch;
+  font-weight:700; letter-spacing:-.026em;
+}
+.closing p{margin:0 0 15px; font-size:15px; line-height:1.64; color:var(--ink2); max-width:46ch}
+.card{border:1px solid var(--rule); background:var(--panel); padding:22px}
+.card dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:11px 18px; font-size:14px}
+.card dt{font:500 11px/1.5 var(--f-mono); letter-spacing:.07em; text-transform:uppercase; color:var(--ink3)}
+.card dd{margin:0; color:var(--ink)}
+.card dd a{color:var(--accent); text-underline-offset:3px}
+
+footer{border-top:1px solid var(--rule)}
+footer .wrap{
+  padding-block:24px 34px; display:flex; flex-wrap:wrap; gap:12px 26px;
+  justify-content:space-between; font:400 12px/1.5 var(--f-mono); color:var(--ink3);
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+
+<header class="mast">
+  <div class="wrap">
+    <p class="eyebrow">Colour grading &amp; photo post &middot; Riga, Latvia &middot; <b>Taking work</b></p>
+    <h1>Maria Pranka</h1>
+    <p class="lede">Every shoot needs post. I do the part that decides <b>how it feels</b> - and
+      carry that decision across every frame in the set.</p>
+    <ul class="links">
+      <li><a href="https://www.upwork.com/freelancers/~014da0c186fe851e4a" target="_blank" rel="noopener">Upwork <i>&#8599;</i></a></li>
+      <li><a href="https://www.fiverr.com/users/prankka" target="_blank" rel="noopener">Fiverr <i>&#8599;</i></a></li>
+      <li><a href="https://www.freelancer.com/u/prankka" target="_blank" rel="noopener">Freelancer <i>&#8599;</i></a></li>
+      <li><a href="mailto:iampranka@gmail.com">iampranka@gmail.com <i>&#8599;</i></a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="scope">
+  <div class="wrap">
+    <div>
+      <h4>What I do</h4>
+      <ul>
+        <li><b>Colour grading</b> and look development</li>
+        <li><b>Exposure and white balance</b>, frame by frame</li>
+        <li><b>Batch consistency</b> across a full set</li>
+        <li><b>Black and white</b> conversion, selective colour</li>
+        <li><b>Clean-up</b> - objects, props, distractions</li>
+        <li><b>Crop, straighten</b> and export to spec</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="hi">Best in</h4>
+      <ul class="hi">
+        <li><b>Whole sets</b>, not single frames</li>
+        <li><b>Difficult and mixed light</b> - dusk, snow, storm, sodium</li>
+        <li><b>Outdoor and location work</b>, where nothing can be reshot</li>
+        <li><b>Fashion and conceptual series</b> with a look to hold</li>
+      </ul>
+    </div>
+    <div>
+      <h4>What you get</h4>
+      <ul>
+        <li>RAW or JPEG in, <b>any camera</b></li>
+        <li>sRGB or Adobe RGB &middot; <b>JPEG, TIFF, DNG</b></li>
+        <li>The <b>Lightroom preset</b> built for your set, yours to keep</li>
+        <li><b>Two rounds of changes</b> included</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<nav class="toc" aria-label="Sections"><div class="wrap"><!--NAV--></div></nav>
+
+<main>
+<!--SECTIONS-->
+
+<section class="process">
+  <div class="wrap">
+    <h2>How a job runs</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="n">STEP 01</span>
+        <h3>Send three frames</h3>
+        <p>Not the whole shoot - three files that represent it. I grade one of them free and send it
+          back. If the look is wrong, it is wrong after one frame instead of after a hundred.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEP 02</span>
+        <h3>Agree the look, then the set</h3>
+        <p>Once the reference frame is signed off, everything else is matched to it - not by running
+          one preset over the take, but frame by frame until nothing drifts.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEP 03</span>
+        <h3>Changes, then delivery</h3>
+        <p>Marked up per frame or across the set: warmer, less contrast in the shadows, crop this one
+          wider. Two rounds included, delivered in the format and colour space you publish in.</p>
+      </div>
+    </div>
+
+    <div class="closing">
+      <div>
+        <h3>The part worth paying for is the hundredth frame</h3>
+        <p>Anyone can make one picture look good. The work is making a hundred look like they came from
+          the same afternoon, and doing it on a deadline.</p>
+        <p>Fifteen years of never missing one - most recently running CRM operations, where the
+          delivery either goes out on schedule or it does not go out at all. That habit is as much of
+          the offer as the grading is.</p>
+      </div>
+      <div class="card">
+        <dl>
+          <dt>Based</dt><dd>Riga, Latvia &middot; UTC+2/+3</dd>
+          <dt>Languages</dt><dd>English, Latvian, Russian</dd>
+          <dt>Tools</dt><dd>Lightroom Classic, Photoshop</dd>
+          <dt>Email</dt><dd><a href="mailto:iampranka@gmail.com">iampranka@gmail.com</a></dd>
+          <dt>Instagram</dt><dd><a href="https://www.instagram.com/pranka.vue/" target="_blank" rel="noopener">@pranka.vue</a></dd>
+          <dt>Hire via</dt><dd>
+            <a href="https://www.upwork.com/freelancers/~014da0c186fe851e4a" target="_blank" rel="noopener">Upwork</a>,
+            <a href="https://www.fiverr.com/users/prankka" target="_blank" rel="noopener">Fiverr</a>,
+            <a href="https://www.freelancer.com/u/prankka" target="_blank" rel="noopener">Freelancer</a>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Maria Pranka - colour grading and photo post-production</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('.cmp.slider').forEach(function(box){
+    var input = box.querySelector('input[type=range]');
+    function draw(){ box.style.setProperty('--p', input.value + '%'); }
+    input.addEventListener('input', draw);
+    draw();
+  });
+})();
+</script>
