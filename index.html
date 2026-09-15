@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Colour grading and retouching for whole shoots - matched frame by frame. Before and after on every image.">
+<meta name="author" content="Maria Pranka">
+<meta name="theme-color" content="#101211">
+<link rel="canonical" href="https://pranka.id.lv/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%239e3a6c'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='40' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EP%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pranka Colour">
+<meta property="og:url" content="https://pranka.id.lv/">
+<meta property="og:title" content="Maria Pranka - colour grading and retouching">
+<meta property="og:description" content="Colour grading and retouching for whole shoots - matched frame by frame. Before and after on every image.">
+<meta property="og:image" content="https://pranka.id.lv/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="A graded frame from a volcanic coast: green cloak against mossy lava rock and a snowfield.">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Maria Pranka - colour grading and retouching">
+<meta name="twitter:description" content="Colour grading and retouching for whole shoots - matched frame by frame. Before and after on every image.">
+<meta name="twitter:image" content="https://pranka.id.lv/img/og.jpg">
+<title>Pranka Colour</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#e7e9e6; --panel:#f3f5f1; --sunk:#dcdfdb;
+  --ink:#14171a; --ink2:#586064; --ink3:#828a8c;
+  --rule:#c8cec9; --rule2:#b2b9b4;
+  --accent:#9e3a6c; --accent-soft:#ecd8e3;
+  --frame:#101211;
+  --maxw:1180px; --read:64ch;
+  --f-body:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-read:"Schibsted Grotesk","Helvetica Neue",Arial,sans-serif;
+  --f-mono:"IBM Plex Mono","SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0f1112; --panel:#171a1b; --sunk:#090b0b;
+    --ink:#e7eae7; --ink2:#99a1a3; --ink3:#727a7c;
+    --rule:#262b2c; --rule2:#333939;
+    --accent:#dd80ac; --accent-soft:#38222e;
+    --frame:#000;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0f1112; --panel:#171a1b; --sunk:#090b0b;
+  --ink:#e7eae7; --ink2:#99a1a3; --ink3:#727a7c;
+  --rule:#262b2c; --rule2:#333939;
+  --accent:#dd80ac; --accent-soft:#38222e;
+  --frame:#000;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font:400 16px/1.6 var(--f-body);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%; height:auto; display:block}
+a{color:inherit}
+.mono{font-family:var(--f-mono); font-variant-numeric:tabular-nums}
+.wrap{max-width:var(--maxw); margin:0 auto; padding-inline:22px}
+
+
+/* ---------- masthead ---------- */
+.mast{border-bottom:1px solid var(--rule)}
+.mast .wrap{padding-block:clamp(38px,7vw,74px) 30px}
+.eyebrow{
+  font:500 11px/1.5 var(--f-mono); letter-spacing:.15em; text-transform:uppercase;
+  color:var(--ink2); margin:0 0 20px;
+}
+.eyebrow b{color:var(--accent); font-weight:500}
+h1{
+  font-size:clamp(40px,7.6vw,74px); line-height:1.02; margin:0 0 .34em;
+  font-family:var(--f-body); font-weight:700; letter-spacing:-.033em; text-wrap:balance;
+}
+.lede{
+  font-weight:400; font-size:clamp(17px,2.1vw,21px); line-height:1.48; color:var(--ink);
+  max-width:40ch; margin:0 0 30px; letter-spacing:-.012em;
+}
+.lede b{font-weight:600; color:var(--accent)}
+
+.links{display:flex; flex-wrap:wrap; gap:9px; margin:0; padding:0; list-style:none}
+.links a{
+  display:inline-flex; align-items:baseline; gap:8px; text-decoration:none;
+  border:1px solid var(--rule2); padding:9px 15px; background:var(--panel);
+  font:500 12.5px/1 var(--f-body); letter-spacing:.01em;
+  transition:border-color .16s, color .16s;
+}
+.links a i{font:400 11px/1 var(--f-mono); font-style:normal; color:var(--ink3)}
+.links a:hover{border-color:var(--accent); color:var(--accent)}
+.links a:hover i{color:var(--accent)}
+
+/* ---------- capability strip ---------- */
+.scope{border-bottom:1px solid var(--rule); background:var(--panel)}
+.scope .wrap{
+  padding-block:30px; display:grid; gap:26px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+}
+.scope h4{
+  font:500 11px/1 var(--f-mono); letter-spacing:.14em; text-transform:uppercase;
+  color:var(--ink3); margin:0 0 12px; padding-bottom:9px; border-bottom:1px solid var(--rule);
+}
+.scope ul{margin:0; padding:0; list-style:none; font-size:14.5px; line-height:1.5}
+.scope li{padding:5px 0 5px 17px; position:relative; color:var(--ink2)}
+.scope li::before{content:""; position:absolute; left:0; top:.78em; width:7px; height:1px; background:var(--rule2)}
+.scope li b{color:var(--ink); font-weight:600}
+.scope .hi li::before{background:var(--accent)}
+
+/* ---------- nav ---------- */
+.toc{
+  border-bottom:1px solid var(--rule); position:sticky; top:env(safe-area-inset-top,0px); z-index:5;
+  background:color-mix(in srgb, var(--ground) 92%, transparent); backdrop-filter:blur(8px);
+}
+.toc .wrap{display:flex; overflow-x:auto; scrollbar-width:none}
+.toc .wrap::-webkit-scrollbar{display:none}
+.toc a{
+  white-space:nowrap; text-decoration:none; padding:13px 0 12px; margin-right:24px;
+  font:500 11.5px/1 var(--f-mono); letter-spacing:.05em; text-transform:uppercase; color:var(--ink2);
+  border-bottom:2px solid transparent; transition:color .16s, border-color .16s;
+}
+.toc a:hover{color:var(--accent); border-bottom-color:var(--accent)}
+
+/* ---------- chapters ---------- */
+.chapter{border-bottom:1px solid var(--rule); scroll-margin-top:58px}
+.chead{max-width:var(--maxw); margin:0 auto; padding:clamp(44px,7vw,78px) 22px clamp(24px,4vw,38px)}
+.idx{display:block; font:500 11.5px/1 var(--f-mono); letter-spacing:.2em; color:var(--accent); margin-bottom:15px}
+.chapter h2{
+  font-size:clamp(26px,3.8vw,38px); line-height:1.08; margin:0 0 .55em; max-width:20ch;
+  font-family:var(--f-body); font-weight:700; letter-spacing:-.028em; text-wrap:balance;
+}
+.intro{
+  margin:0; max-width:var(--read); color:var(--ink2);
+  font-weight:400; font-size:16.5px; line-height:1.64; letter-spacing:-.005em;
+}
+.intro em{color:var(--ink); font-style:normal; font-weight:600}
+.intro .mono{font-size:15px; color:var(--accent); font-weight:400}
+
+/* ---------- case studies ---------- */
+.casehead{
+  max-width:var(--maxw); margin:0 auto;
+  padding:clamp(10px,2vw,18px) 22px clamp(20px,3vw,28px);
+}
+.casehead .tagline{
+  display:inline-block; font:500 10.5px/1 var(--f-mono); letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent); background:var(--accent-soft);
+  padding:7px 10px; margin-bottom:14px;
+}
+.casehead h3{
+  font-size:clamp(19px,2.5vw,25px); line-height:1.18; font-weight:700;
+  letter-spacing:-.024em; margin:0 0 .5em; max-width:24ch;
+}
+.casehead p{margin:0; max-width:var(--read); font-size:15.5px; line-height:1.62; color:var(--ink2)}
+.chapter .casehead + .work{padding-top:0}
+.work + .casehead{
+  padding-top:clamp(22px,3.4vw,34px); position:relative;
+}
+.work + .casehead::before{
+  content:""; position:absolute; top:0; left:22px; right:22px; height:1px; background:var(--rule);
+}
+
+/* ---------- work blocks ---------- */
+.work{
+  max-width:var(--maxw); margin:0 auto; padding:0 22px clamp(40px,6vw,62px);
+  display:grid; gap:clamp(18px,2.6vw,32px);
+  grid-template-columns:minmax(0,1.62fr) minmax(0,1fr); align-items:start;
+}
+.work.wide{grid-template-columns:minmax(0,1fr); gap:20px}
+.work.wide .meta{max-width:var(--read)}
+@media (max-width:880px){ .work{grid-template-columns:minmax(0,1fr)} }
+
+.meta h3{
+  font:500 12px/1.35 var(--f-mono); letter-spacing:.07em; text-transform:uppercase;
+  margin:0 0 13px; color:var(--ink); padding-bottom:11px; border-bottom:1px solid var(--rule);
+}
+.reads{list-style:none; margin:0 0 14px; padding:0; display:flex; flex-wrap:wrap; gap:6px}
+.reads li{
+  font:400 11.5px/1 var(--f-mono); padding:6px 9px; color:var(--accent); background:var(--accent-soft);
+}
+.meta p{margin:0; font-size:14.5px; line-height:1.65; color:var(--ink2)}
+
+/* ---------- comparison ---------- */
+.cmp{position:relative; background:var(--frame); overflow:hidden}
+.cmp.solo img{width:100%}
+.cmp.slider{touch-action:pan-y; cursor:ew-resize}
+.cmp.slider img{width:100%}
+.cmp.slider .rev{position:absolute; inset:0; clip-path:inset(0 0 0 var(--p,52%))}
+.cmp.slider .rev img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
+.cmp.slider .bar{
+  position:absolute; top:0; bottom:0; left:var(--p,52%); width:2px; margin-left:-1px;
+  background:#fff; box-shadow:0 0 0 1px rgba(0,0,0,.34); pointer-events:none;
+}
+.cmp.slider .grip{
+  position:absolute; top:50%; left:50%; width:38px; height:38px; margin:-19px 0 0 -19px;
+  border:2px solid #fff; border-radius:50%; background:rgba(12,14,13,.32);
+  box-shadow:0 0 0 1px rgba(0,0,0,.3);
+}
+.cmp.slider .grip::before,.cmp.slider .grip::after{
+  content:""; position:absolute; top:50%; width:0; height:0; margin-top:-5px;
+  border-top:5px solid transparent; border-bottom:5px solid transparent;
+}
+.cmp.slider .grip::before{left:8px; border-right:6px solid #fff}
+.cmp.slider .grip::after{right:8px; border-left:6px solid #fff}
+.cmp.slider input[type=range]{
+  position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0;
+  cursor:ew-resize; -webkit-appearance:none; appearance:none; background:transparent;
+}
+.cmp.slider input[type=range]::-webkit-slider-thumb{-webkit-appearance:none; width:44px; height:100px}
+.cmp.slider input[type=range]::-moz-range-thumb{width:44px; height:100px; border:0; background:transparent}
+.cmp.slider:focus-within{outline:2px solid var(--accent); outline-offset:3px}
+.tag{
+  position:absolute; top:11px; font:500 10px/1 var(--f-mono); letter-spacing:.13em;
+  text-transform:uppercase; color:#f2f2f0; background:rgba(10,12,11,.68); padding:6px 8px;
+  pointer-events:none;
+}
+.tag.l{left:11px} .tag.r{right:11px}
+
+.cmp.duo{
+  display:grid; grid-template-columns:1fr 1fr; gap:2px;
+  background:var(--rule2); align-items:stretch;
+}
+.cmp.duo figure{
+  margin:0; position:relative; background:var(--frame); line-height:0;
+  display:flex; align-items:center; justify-content:center;
+}
+.cmp.duo img{width:100%; height:auto}
+.cmp.duo figcaption{
+  position:absolute; top:11px; left:11px; font:500 10px/1 var(--f-mono); letter-spacing:.13em;
+  text-transform:uppercase; color:#f2f2f0; background:rgba(10,12,11,.68); padding:6px 8px;
+}
+
+/* ---------- process + contact ---------- */
+.process .wrap{padding-block:clamp(46px,7vw,80px)}
+.process h2{
+  font-size:clamp(24px,3.4vw,33px); line-height:1.1; margin:0 0 32px;
+  font-weight:700; letter-spacing:-.028em;
+}
+.steps{display:grid; gap:1px; background:var(--rule); border:1px solid var(--rule); margin-bottom:42px}
+@media (min-width:760px){.steps{grid-template-columns:repeat(3,1fr)}}
+.step{background:var(--panel); padding:24px 22px}
+.step .n{font:500 11px/1 var(--f-mono); letter-spacing:.2em; color:var(--accent); display:block; margin-bottom:14px}
+.step h3{font:600 15px/1.35 var(--f-body); margin:0 0 9px}
+.step p{margin:0; font-size:14px; line-height:1.6; color:var(--ink2)}
+
+.closing{display:grid; gap:30px; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); align-items:start}
+.closing h3{
+  font-size:clamp(20px,2.7vw,27px); line-height:1.16; margin:0 0 14px; max-width:19ch;
+  font-weight:700; letter-spacing:-.026em;
+}
+.closing p{margin:0 0 15px; font-size:15px; line-height:1.64; color:var(--ink2); max-width:46ch}
+.card{border:1px solid var(--rule); background:var(--panel); padding:22px}
+.card dl{margin:0; display:grid; grid-template-columns:auto 1fr; gap:11px 18px; font-size:14px}
+.card dt{font:500 11px/1.5 var(--f-mono); letter-spacing:.07em; text-transform:uppercase; color:var(--ink3)}
+.card dd{margin:0; color:var(--ink)}
+.card dd a{color:var(--accent); text-underline-offset:3px}
+
+footer{border-top:1px solid var(--rule)}
+footer .wrap{
+  padding-block:24px 34px; display:flex; flex-wrap:wrap; gap:12px 26px;
+  justify-content:space-between; font:400 12px/1.5 var(--f-mono); color:var(--ink3);
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+</head>
+<body>
+
+
+<header class="mast">
+  <div class="wrap">
+    <p class="eyebrow">Colour grading &amp; photo post &middot; Riga, Latvia &middot; <b>Taking work</b></p>
+    <h1>Maria Pranka</h1>
+    <p class="lede">Every shoot needs post. I do the part that decides <b>how it feels</b> - and
+      carry that decision across every frame in the set.</p>
+    <ul class="links">
+      <li><a href="https://www.upwork.com/freelancers/~014da0c186fe851e4a" target="_blank" rel="noopener">Upwork <i>&#8599;</i></a></li>
+      <li><a href="https://www.fiverr.com/users/prankka" target="_blank" rel="noopener">Fiverr <i>&#8599;</i></a></li>
+      <li><a href="https://www.freelancer.com/u/prankka" target="_blank" rel="noopener">Freelancer <i>&#8599;</i></a></li>
+      <li><a href="mailto:iampranka@gmail.com">iampranka@gmail.com <i>&#8599;</i></a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="scope">
+  <div class="wrap">
+    <div>
+      <h4>What I do</h4>
+      <ul>
+        <li><b>Colour grading</b> and look development</li>
+        <li><b>Exposure and white balance</b>, frame by frame</li>
+        <li><b>Batch consistency</b> across a full set</li>
+        <li><b>Black and white</b> conversion, selective colour</li>
+        <li><b>Clean-up</b> - objects, props, distractions</li>
+        <li><b>Crop, straighten</b> and export to spec</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="hi">Best in</h4>
+      <ul class="hi">
+        <li><b>Whole sets</b>, not single frames</li>
+        <li><b>Difficult and mixed light</b> - dusk, snow, storm, sodium</li>
+        <li><b>Outdoor and location work</b>, where nothing can be reshot</li>
+        <li><b>Fashion and conceptual series</b> with a look to hold</li>
+      </ul>
+    </div>
+    <div>
+      <h4>What you get</h4>
+      <ul>
+        <li>RAW or JPEG in, <b>any camera</b></li>
+        <li>sRGB or Adobe RGB &middot; <b>JPEG, TIFF, DNG</b></li>
+        <li>The <b>Lightroom preset</b> built for your set, yours to keep</li>
+        <li><b>Two rounds of changes</b> included</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<nav class="toc" aria-label="Sections"><div class="wrap"><a href="#s01">01 &middot; One look across a whole set</a><a href="#s02">02 &middot; Before and after</a><a href="#s03">03 &middot; Colour casts and mixed light</a><a href="#s04">04 &middot; Portraits on location</a><a href="#s05">05 &middot; Landscape, travel and drone</a><a href="#s06">06 &middot; Colour as the decision</a></div></nav>
+
+<main>
+  <section class="chapter" id="s01">
+    <header class="chead">
+      <span class="idx">§01</span>
+      <h2>One look across a whole set</h2>
+      <p class="intro">This is the part that is worth paying for. A single frame graded well is a nice picture; forty frames graded <em>identically</em> is a deliverable - and it is where most cheap editing falls apart, because running one preset over a take is not the same thing as matching it. Three projects below. Each opens with an uncropped frame on a slider, so the grade is the only thing that changes, then frames where the recrop is part of the work, then the contact sheet.</p>
+    </header>
+    <div class="casehead">
+      <span class="tagline">Case one</span>
+      <h3>Narrative series: flat daylight in, one night out</h3>
+      <p>A ten-frame story shot at midday and delivered as a single nocturnal scene. The look is built once on a reference frame, then argued with image by image - green pulled almost out, exposure taken down, every figure dodged back up by hand so nobody disappears into the grade.</p>
+    </div>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p11-b.jpg" width="1500" height="1000" alt="Boulder and typewriter, same frame, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p11-a.jpg" width="1500" height="1000" alt="Boulder and typewriter, same frame, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl11" aria-label="Reveal the graded version of Boulder and typewriter, same frame">
+      </div>
+      <div class="meta">
+        <h3>Boulder and typewriter, same frame</h3>
+        <ul class="reads"><li>no crop</li><li>b* +9.9 → +1.4</li><li>chroma −63%</li></ul>
+        <p>The reference frame the rest of the set was built from, and the clearest look at what the grade does on its own: summer green pulled almost entirely out, the whole scene taken down to dusk, and the figure and the paper held up so they survive it.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p9-b.jpg" width="1500" height="1000" alt="Hillside at golden hour, uncropped, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p9-a.jpg" width="1500" height="1000" alt="Hillside at golden hour, uncropped, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl9" aria-label="Reveal the graded version of Hillside at golden hour, uncropped">
+      </div>
+      <div class="meta">
+        <h3>Hillside at golden hour, uncropped</h3>
+        <ul class="reads"><li>no crop</li><li>b* +10.3 → +5.2</li><li>chroma −43%</li></ul>
+        <p>The second frame in the set that needed no crop at all, which makes it the other clean look at the grade on its own. Warmth pulled back out of the grass, the whole frame taken down, and the figure and the typewriter kept readable in what is left.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p12-b.jpg" width="1500" height="1000" alt="Forest, flat daylight in, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p12-a.jpg" width="1500" height="1234" alt="Forest, flat daylight in, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Forest, flat daylight in</h3>
+        <ul class="reads"><li>3:2 → 5:4</li><li>b* +13.8 → +0.7</li><li>chroma −75%</li></ul>
+        <p>Shot at midday for a set that had to end up near-nocturnal. Exposure pulled right down, green taken almost out, and the figure held up with local dodging so she does not go with the rest of it.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p15-b.jpg" width="1500" height="1000" alt="River crossing, cold grade, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p15-a.jpg" width="1500" height="1081" alt="River crossing, cold grade, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>River crossing, cold grade</h3>
+        <ul class="reads"><li>b* +8.3 → −6.1</li><li>chroma −32%</li><li>contrast +8%</li></ul>
+        <p>Same set, opposite temperature. Summer green taken out of the water and the bank, the whole frame pushed cold, and the skin kept just warm enough to stay separate from it.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p8-b.jpg" width="1500" height="1000" alt="Roadside, black dress, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p8-a.jpg" width="1500" height="1126" alt="Roadside, black dress, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Roadside, black dress</h3>
+        <ul class="reads"><li>3:2 → 4:3</li><li>b* +5.8 → −1.2</li><li>chroma −37%</li></ul>
+        <p>Same set, opposite problem: a bright overcast sky with nothing in it. Recovered and cooled, the bank warmed slightly against it, and the crop tightened to 4:3 so the sky stops taking half the picture.</p>
+      </div>
+    </article>
+    <article class="work wide">
+      <div class="cmp solo">
+        <img src="img/grid-search.jpg" width="1600" height="1162" alt="The full ten-frame set" loading="lazy" decoding="async">
+      </div>
+      <div class="meta">
+        <h3>The full ten-frame set</h3>
+        <p>Shot across one summer day in changing light, finished as a single night. Nothing in here drifts from anything else in here - that is the deliverable.</p>
+      </div>
+    </article>
+    <div class="casehead">
+      <span class="tagline">Case two</span>
+      <h3>Editorial series: Iceland, one look across the whole trip</h3>
+      <p>Several days on volcanic coast, and the take came back with a blue-magenta cast over all of it. Corrected first, then graded as one body of work rather than as a set of individual pictures - which is why black sand, green moss and a lava field can sit next to each other without looking like three different jobs. One frame also lost a crew member who was standing in it.</p>
+    </div>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1000/1500">
+        <img src="img/p94-b.jpg" width="1000" height="1500" alt="Black sand, breaking wave, uncropped, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p94-a.jpg" width="1000" height="1500" alt="Black sand, breaking wave, uncropped, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl94" aria-label="Reveal the graded version of Black sand, breaking wave, uncropped">
+      </div>
+      <div class="meta">
+        <h3>Black sand, breaking wave, uncropped</h3>
+        <ul class="reads"><li>no crop</li><li>a* +8.8 → −4.1</li><li>chroma −49%</li></ul>
+        <p>Straight out of the camera with the blue cast the whole trip came back with. Corrected to neutral, the spray recovered, and the sand taken down until the cloak and the white water are the only two things left with any brightness.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p92-b.jpg" width="1500" height="1000" alt="Moss and meltwater, second person removed, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p92-a.jpg" width="1500" height="1000" alt="Moss and meltwater, second person removed, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Moss and meltwater, second person removed</h3>
+        <ul class="reads"><li>person removed</li><li>a* +5.2 → −9.9</li><li>chroma +36%</li></ul>
+        <p>There was a crew member standing at the right of the frame in a black t-shirt and jeans. Removed, and the rock and moss rebuilt behind where he was standing. After that the green is lifted on its own channel so the moss carries the frame and the dress stays a different green from it.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p89-b.jpg" width="1500" height="1000" alt="Lava field, converted, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p89-a.jpg" width="1500" height="879" alt="Lava field, converted, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Lava field, converted</h3>
+        <ul class="reads"><li>3:2 → 5:3</li><li>a* +10.7 → −0.5</li><li>converted to mono</li></ul>
+        <p>Strong magenta over sand that had almost no colour in it to begin with - so the honest answer was to take colour out of the decision entirely. Converted, recropped wider, and the dress left as the only true black in the frame.</p>
+      </div>
+    </article>
+    <article class="work wide">
+      <div class="cmp solo">
+        <img src="img/grid-iceland.jpg" width="1600" height="1590" alt="Eight frames from the trip" loading="lazy" decoding="async">
+      </div>
+      <div class="meta">
+        <h3>Eight frames from the trip</h3>
+        <p>Black sand, lava field, moss and meltwater, shot over several days in wildly different light and delivered as one body of work. A sample - the trip produced considerably more.</p>
+      </div>
+    </article>
+    <div class="casehead">
+      <span class="tagline">Case three</span>
+      <h3>Conceptual fashion series: nineteen frames, one grade</h3>
+      <p>The hardest of the three. White paper masks and white swimwear in full mountain sun, so almost every frame came off the card with the highlights clipped: the recovery had to happen before any look could be applied. Then a crop per frame to carry the story, and a selective preset built for each mask so the paper stays paper-white while everything around it drops two or three stops. Doing that once is an edit. Doing it nineteen times and still having one series is the work. Delivered as full-resolution masters.</p>
+    </div>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1054">
+        <img src="img/p52-b.jpg" width="1500" height="1054" alt="Fox mask on the meadow, uncropped, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p52-a.jpg" width="1500" height="1054" alt="Fox mask on the meadow, uncropped, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl52" aria-label="Reveal the graded version of Fox mask on the meadow, uncropped">
+      </div>
+      <div class="meta">
+        <h3>Fox mask on the meadow, uncropped</h3>
+        <ul class="reads"><li>3:2 → 1.42:1</li><li>b* +6.8 → +1.9</li><li>chroma −62%</li></ul>
+        <p>Almost the same frame in and out, so the colour is the whole change. Summer green pulled out of the grass and the far slope, the exposure taken down about a stop and a half, and the white of the mask and the swimwear held up so the figure survives it.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p54-b.jpg" width="1500" height="1000" alt="Lake edge, paper ears, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p54-a.jpg" width="943" height="1500" alt="Lake edge, paper ears, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Lake edge, paper ears</h3>
+        <ul class="reads"><li>3:2 → 2:3</li><li>L̄ 42 → 20</li><li>chroma −37%</li></ul>
+        <p>Shot into the light with a white paper prop, white swimwear and a bright lake behind - every highlight on the edge of clipping. Recovered first, then the whole frame taken down more than two stops and recropped to vertical, with the paper held as the only clean white left.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p56-b.jpg" width="1500" height="1000" alt="Boulder in the pines, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p56-a.jpg" width="1042" height="1500" alt="Boulder in the pines, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Boulder in the pines</h3>
+        <ul class="reads"><li>3:2 → 2:3</li><li>L̄ 41 → 12</li><li>chroma −66%</li></ul>
+        <p>Midday sun on green scrub, which is the worst light this series could have had. Green stripped almost out, exposure down nearly three stops, and the figure recovered back out of the shadow it would otherwise have fallen into.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p59-b.jpg" width="1500" height="1000" alt="Snowmelt, running water, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p59-a.jpg" width="1500" height="899" alt="Snowmelt, running water, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Snowmelt, running water</h3>
+        <ul class="reads"><li>3:2 → 5:3</li><li>L̄ 67 → 29</li><li>chroma −40%</li></ul>
+        <p>Snow, whitewater and a white mask in one frame - three different whites, all of them blown. Each recovered separately so they stay distinguishable, then the rock dropped to hold them apart.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p65-b.jpg" width="1500" height="1000" alt="Boulder field, wide, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p65-a.jpg" width="1500" height="725" alt="Boulder field, wide, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Boulder field, wide</h3>
+        <ul class="reads"><li>3:2 → 2:1</li><li>chroma −83%</li><li>contrast +32%</li></ul>
+        <p>Colour taken almost entirely out and the contrast pushed instead, so the frame reads as rock against snow. Cropped wide because the scale of the boulders is the story and the figure is supposed to be small in it.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p69-b.jpg" width="1500" height="1000" alt="Meadow, storm light, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p69-a.jpg" width="997" height="1500" alt="Meadow, storm light, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Meadow, storm light</h3>
+        <ul class="reads"><li>3:2 → 2:3</li><li>L̄ 59 → 27</li><li>chroma −66%</li></ul>
+        <p>Sun on the grass, storm on the ridge behind - two light sources pulling in opposite directions. The meadow is graded down to match the sky rather than the other way round, and the crop drops the horizon so the cloud does the work.</p>
+      </div>
+    </article>
+    <article class="work wide">
+      <div class="cmp solo">
+        <img src="img/grid-masks.jpg" width="1600" height="1346" alt="Sixteen frames from the set" loading="lazy" decoding="async">
+      </div>
+      <div class="meta">
+        <h3>Sixteen frames from the set</h3>
+        <p>A sample of the delivery, not the whole of it - the set ran to several times this many frames. What matters is not any one picture here but that no picture drifts from the others.</p>
+      </div>
+    </article>
+  </section>
+  <section class="chapter" id="s02">
+    <header class="chead">
+      <span class="idx">§02</span>
+      <h2>Before and after</h2>
+      <p class="intro">Four frames, four different problems. Drag the handle - the file on the left is what came out of the camera, the file on the right is what the client published. Everything on this page is my own work, and the readouts under each pair are measured off the files rather than described.</p>
+    </header>
+    <article class="work wide">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p47-b.jpg" width="1500" height="1000" alt="Lakeside, overcast, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p47-a.jpg" width="1500" height="1000" alt="Lakeside, overcast, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl47" aria-label="Reveal the graded version of Lakeside, overcast">
+      </div>
+      <div class="meta">
+        <h3>Lakeside, overcast</h3>
+        <ul class="reads"><li>a* +8.4 → −2.9</li><li>chroma −36%</li><li>contrast +5%</li></ul>
+        <p>Nothing but available light and most of it wrong. Cast off, subject lifted about half a stop against the water, background cooled so she comes forward without a cut-out.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p100-b.jpg" width="1500" height="1000" alt="Sea stacks, flat light, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p100-a.jpg" width="1500" height="1000" alt="Sea stacks, flat light, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl100" aria-label="Reveal the graded version of Sea stacks, flat light">
+      </div>
+      <div class="meta">
+        <h3>Sea stacks, flat light</h3>
+        <ul class="reads"><li>a* +8.1 → −0.2</li><li>chroma −66%</li><li>contrast +12%</li></ul>
+        <p>The whole stretch of coast came back magenta - not a colour choice, a tint bias in the raws. Corrected to neutral and then matched across every frame from that shoot, so the set can sit in one gallery without one picture looking like a different day.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p40-b.jpg" width="1500" height="1000" alt="Lake and glacier, gear removed, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p40-a.jpg" width="1500" height="1000" alt="Lake and glacier, gear removed, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl40" aria-label="Reveal the graded version of Lake and glacier, gear removed">
+      </div>
+      <div class="meta">
+        <h3>Lake and glacier, gear removed</h3>
+        <ul class="reads"><li>objects removed</li><li>L̄ 79 → 67</li><li>contrast +22%</li></ul>
+        <p>A camera bag and a second black case were lying in the grass at the bottom left. Both removed and the ground rebuilt underneath, then the blown sky recovered and the whole frame taken down so the snowfield stops burning out.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p23-b.jpg" width="1500" height="1000" alt="Sandstone cave, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p23-a.jpg" width="1500" height="1000" alt="Sandstone cave, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl23" aria-label="Reveal the graded version of Sandstone cave">
+      </div>
+      <div class="meta">
+        <h3>Sandstone cave</h3>
+        <ul class="reads"><li>a* +6.0 → +1.1</li><li>chroma −49%</li><li>contrast +11%</li></ul>
+        <p>The sandstone was bouncing warm light onto everything, costume included. The grade splits them again - warm wall, cool figure - which is the separation the frame needed and a selection would have faked.</p>
+      </div>
+    </article>
+  </section>
+  <section class="chapter" id="s03">
+    <header class="chead">
+      <span class="idx">§03</span>
+      <h2>Colour casts and mixed light</h2>
+      <p class="intro">The most common thing a full take comes back with: a tint bias over every single raw, or two light sources that refuse to agree. On one frame it is two minutes of work. Across a hundred it is the whole job, because the correction has to be the <em>same</em> correction or the set stops looking like one set. <span class="mono">a*</span> below is the green-magenta axis, which is what a cast actually is.</p>
+    </header>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p50-b.jpg" width="1500" height="1000" alt="Rocks, riding coat, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p50-a.jpg" width="1500" height="1000" alt="Rocks, riding coat, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl50" aria-label="Reveal the graded version of Rocks, riding coat">
+      </div>
+      <div class="meta">
+        <h3>Rocks, riding coat</h3>
+        <ul class="reads"><li>no crop</li><li>a* +10.2 → −1.7</li><li>contrast +25%</li></ul>
+        <p>The strongest magenta cast in this part of the take and the easiest to see it go: the stone comes back grey, the white trousers come back white, and the contrast lift is what gives the rock its texture again.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p99-b.jpg" width="1500" height="1000" alt="Painted houses, coastal, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p99-a.jpg" width="1500" height="896" alt="Painted houses, coastal, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Painted houses, coastal</h3>
+        <ul class="reads"><li>3:2 → 16:10</li><li>a* +4.7 → −2.9</li><li>chroma −47%</li></ul>
+        <p>Painted houses are the whole subject, so the cast had to come off without taking the paint with it. Neutral sky and grass, saturation held only where the buildings are.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p45-b.jpg" width="1500" height="1000" alt="Spring snow, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p45-a.jpg" width="1500" height="1000" alt="Spring snow, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl45" aria-label="Reveal the graded version of Spring snow">
+      </div>
+      <div class="meta">
+        <h3>Spring snow</h3>
+        <ul class="reads"><li>a* +8.3 → +2.4</li><li>chroma −60%</li></ul>
+        <p>Snow is the hardest surface to white-balance: it takes the cast and shows it everywhere at once. Corrected against the snow, then the rock wall warmed back by hand so the frame keeps two temperatures instead of one.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1036">
+        <img src="img/p73-b.jpg" width="1500" height="1036" alt="Pass road into cloud, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p73-a.jpg" width="1500" height="1036" alt="Pass road into cloud, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl73" aria-label="Reveal the graded version of Pass road into cloud">
+      </div>
+      <div class="meta">
+        <h3>Pass road into cloud</h3>
+        <ul class="reads"><li>a* +7.3 → +0.3</li><li>chroma −74%</li></ul>
+        <p>The cast was doing the most damage here because the whole frame is cloud, and cloud has nowhere to hide a tint. Neutralised, then the road held slightly brighter than the fog so there is still somewhere for the eye to go.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/988">
+        <img src="img/p109-b.jpg" width="1500" height="988" alt="Cracked flats, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p109-a.jpg" width="1500" height="988" alt="Cracked flats, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl109" aria-label="Reveal the graded version of Cracked flats">
+      </div>
+      <div class="meta">
+        <h3>Cracked flats</h3>
+        <ul class="reads"><li>b* +7.9 → +2.8</li><li>chroma −54%</li><li>contrast +23%</li></ul>
+        <p>Flat light on cracked mud with a warm-magenta cast over both. The correction is what lets the cracks read as texture instead of noise.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p72-b.jpg" width="1500" height="1000" alt="North face, high cloud, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p72-a.jpg" width="965" height="1500" alt="North face, high cloud, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>North face, high cloud</h3>
+        <ul class="reads"><li>3:2 → 2:3</li><li>a* +11.0 → +0.5</li><li>chroma −78%</li></ul>
+        <p>The strongest cast in the take - the snow was coming back lilac. Neutralised, recropped to vertical for the ridgeline, and the trees pulled down so they stop competing with the couloirs.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p18-b.jpg" width="1500" height="1000" alt="Parking structure, night, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p18-a.jpg" width="1500" height="1000" alt="Parking structure, night, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl18" aria-label="Reveal the graded version of Parking structure, night">
+      </div>
+      <div class="meta">
+        <h3>Parking structure, night</h3>
+        <ul class="reads"><li>a* +3.8 → −4.0</li><li>L̄ 25 → 31</li></ul>
+        <p>Mixed sodium and fluorescent, nothing neutral in the frame to balance against. Balanced on the white garment instead, then the concrete cooled until the two light sources agree.</p>
+      </div>
+    </article>
+  </section>
+  <section class="chapter" id="s04">
+    <header class="chead">
+      <span class="idx">§04</span>
+      <h2>Portraits on location</h2>
+      <p class="intro">Available light, no studio, no strobes. Subjects are separated from their backgrounds with exposure and colour rather than selections - slower to do, and much harder for anyone to spot afterwards. No beauty or skin retouching: that is a different craft.</p>
+    </header>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p21-b.jpg" width="1500" height="1000" alt="Rocks and surf, uncropped, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p21-a.jpg" width="1500" height="1000" alt="Rocks and surf, uncropped, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl21" aria-label="Reveal the graded version of Rocks and surf, uncropped">
+      </div>
+      <div class="meta">
+        <h3>Rocks and surf, uncropped</h3>
+        <ul class="reads"><li>no crop</li><li>a* +0.5 → −1.0</li><li>chroma −29%</li></ul>
+        <p>Nothing moved, nothing cropped - the frame was already right. Blue pulled out of the rock, the surf held back from clipping, and the subject warmed about half a stop so she separates from a background that is the same tonal range as she is.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1036">
+        <img src="img/p106-b.jpg" width="1500" height="1036" alt="Umbrella in the fog, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p106-a.jpg" width="1500" height="1036" alt="Umbrella in the fog, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl106" aria-label="Reveal the graded version of Umbrella in the fog">
+      </div>
+      <div class="meta">
+        <h3>Umbrella in the fog</h3>
+        <ul class="reads"><li>a* +7.9 → −1.0</li><li>chroma −53%</li><li>contrast +23%</li></ul>
+        <p>Snow coming down in flat white light, which leaves nothing in the frame with any edge to it. The magenta cast came off first, then the treeline and the pylons were pulled back in behind the fog, and the umbrella left as the brightest thing so the figure has something to stand against.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p96-b.jpg" width="1500" height="1000" alt="Close portrait, flowers, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p96-a.jpg" width="1500" height="1093" alt="Close portrait, flowers, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Close portrait, flowers</h3>
+        <ul class="reads"><li>3:2 → 4:3</li><li>a* +20.4 → +7.8</li><li>chroma −51%</li></ul>
+        <p>Colour work only. The wood and the hair were the same orange; pulling them apart on the red channel is what puts the face in front of the background.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p6-b.jpg" width="1000" height="1500" alt="Coast, midday sun, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p6-a.jpg" width="1273" height="1500" alt="Coast, midday sun, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Coast, midday sun</h3>
+        <ul class="reads"><li>2:3 → 4:5</li><li>contrast +41%</li></ul>
+        <p>Blown sky, blocked rocks, about one stop of usable range between them. Highlight and shadow recovery first, then a crop to vertical because the horizon was the least interesting thing in the picture.</p>
+      </div>
+    </article>
+  </section>
+  <section class="chapter" id="s05">
+    <header class="chead">
+      <span class="idx">§05</span>
+      <h2>Landscape, travel and drone</h2>
+      <p class="intro">Flat, hazy or badly-lit originals brought back to something publishable - and, where something did not belong in the frame, taken out of it. None of these could be reshot.</p>
+    </header>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p75-b.jpg" width="1500" height="1000" alt="Storm over a valley town, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p75-a.jpg" width="1500" height="1428" alt="Storm over a valley town, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Storm over a valley town</h3>
+        <ul class="reads"><li>3:2 → 1:1</li><li>converted to mono</li><li>L̄ 28 → 16</li></ul>
+        <p>Handheld, high ISO, into a night storm. The colour was never going to survive - sodium street light below, violet cast above, lightning between them. Black and white lets the strike separate from the cloud instead of fighting the town for attention.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p3-b.jpg" width="1500" height="1000" alt="Volcano above a hill town, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p3-a.jpg" width="1500" height="922" alt="Volcano above a hill town, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Volcano above a hill town</h3>
+        <ul class="reads"><li>3:2 → 16:10</li><li>b* −5.8 → −2.2</li></ul>
+        <p>Midday haze had flattened mountain, town and sky into one plane. Dehaze plus a split tone puts them back at three distances; the crop drops a bright edge that was pulling the eye out of frame.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p71-b.jpg" width="1500" height="1000" alt="Town from above, dusk, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p71-a.jpg" width="1500" height="1000" alt="Town from above, dusk, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl71" aria-label="Reveal the graded version of Town from above, dusk">
+      </div>
+      <div class="meta">
+        <h3>Town from above, dusk</h3>
+        <ul class="reads"><li>no crop</li><li>contrast +25%</li><li>a* +12.1 → +8.4</li></ul>
+        <p>Drone frame at the end of the light, flat and murky. Red roofs kept as the only saturated thing, everything else cooled and dropped, and enough local contrast added that the streets read from that height.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p103-b.jpg" width="1500" height="1000" alt="Aerial, glacial water, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p103-a.jpg" width="1500" height="781" alt="Aerial, glacial water, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Aerial, glacial water</h3>
+        <ul class="reads"><li>3:2 → 2:1</li><li>b* −10.5 → −3.0</li><li>chroma −59%</li></ul>
+        <p>Drone frames carry their own problems: low contrast through the air column, a colour shift with altitude, and a horizon that is never quite where you left it. Straightened, cropped panoramic, and the water separated from the rock on colour rather than saturation.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1000/1500">
+        <img src="img/p24-b.jpg" width="1000" height="1500" alt="City at night, long exposure, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p24-a.jpg" width="1000" height="1500" alt="City at night, long exposure, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl24" aria-label="Reveal the graded version of City at night, long exposure">
+      </div>
+      <div class="meta">
+        <h3>City at night, long exposure</h3>
+        <ul class="reads"><li>no crop</li><li>b* +12.9 → +3.3</li><li>chroma −37%</li></ul>
+        <p>Sodium street light over everything, which on a night frame means the whole picture is one colour. Balanced back, the traffic trails left warm on purpose, and the buildings dropped so the roads are what the eye follows.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p25-b.jpg" width="1500" height="1000" alt="Valley wall from above, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p25-a.jpg" width="1500" height="1000" alt="Valley wall from above, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl25" aria-label="Reveal the graded version of Valley wall from above">
+      </div>
+      <div class="meta">
+        <h3>Valley wall from above</h3>
+        <ul class="reads"><li>no crop</li><li>L̄ 28 → 19</li><li>contrast +12%</li></ul>
+        <p>About one stop of usable contrast in the whole original. Local contrast added across the slope rather than a global curve, which is what separates the fields, the scree and the rock face into three readable things instead of one grey mass.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p104-b.jpg" width="1500" height="1000" alt="Ridge under cloud, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p104-a.jpg" width="1500" height="1000" alt="Ridge under cloud, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl104" aria-label="Reveal the graded version of Ridge under cloud">
+      </div>
+      <div class="meta">
+        <h3>Ridge under cloud</h3>
+        <ul class="reads"><li>a* +9.5 → −0.2</li><li>chroma −78%</li><li>L̄ 48 → 23</li></ul>
+        <p>A frame where colour was working against the picture - a lilac sky flattening a mountain that is entirely about form. Nearly all of it taken out, then the exposure dropped hard so the snow does the drawing.</p>
+      </div>
+    </article>
+  </section>
+  <section class="chapter" id="s06">
+    <header class="chead">
+      <span class="idx">§06</span>
+      <h2>Colour as the decision</h2>
+      <p class="intro">Frames where the edit was a decision rather than a repair: convert or keep, saturate or strip, crop tight or leave the room. Each of these could have gone the other way, and choosing is the service.</p>
+    </header>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p67-b.jpg" width="1500" height="1000" alt="Snowfield above the treeline, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p67-a.jpg" width="1500" height="913" alt="Snowfield above the treeline, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Snowfield above the treeline</h3>
+        <ul class="reads"><li>3:2 → 16:10</li><li>converted to mono</li><li>contrast +29%</li></ul>
+        <p>Colour was doing nothing here - green moss on grey rock under white snow. In mono the rock reads as mass and the figure finally has somewhere to stand. The recrop moves her off centre and hands the diagonal to the snowfield.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/p27-b.jpg" width="1500" height="1000" alt="Sea cliff, cropped vertical, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p27-a.jpg" width="1304" height="1500" alt="Sea cliff, cropped vertical, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>Sea cliff, cropped vertical</h3>
+        <ul class="reads"><li>3:2 → 4:5</li><li>b* −7.8 → −1.6</li><li>chroma −53%</li></ul>
+        <p>A colour decision and a crop decision in the same frame. The blue is taken almost fully out of the water so the cliff face reads as rock, and the frame is cut to 4:5 so the drop is the subject instead of the bay.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p80-b.jpg" width="1500" height="1000" alt="Poppy field, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p80-a.jpg" width="1500" height="1000" alt="Poppy field, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl80" aria-label="Reveal the graded version of Poppy field">
+      </div>
+      <div class="meta">
+        <h3>Poppy field</h3>
+        <ul class="reads"><li>chroma −67%</li><li>contrast +25%</li></ul>
+        <p>Selective colour, not a filter. The field goes back to green and grey; only the flowers she is holding keep their red, so the eye goes where the picture wants it.</p>
+      </div>
+    </article>
+    <article class="work">
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p46-b.jpg" width="1500" height="1000" alt="Wave, breaking, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p46-a.jpg" width="1500" height="1000" alt="Wave, breaking, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl46" aria-label="Reveal the graded version of Wave, breaking">
+      </div>
+      <div class="meta">
+        <h3>Wave, breaking</h3>
+        <ul class="reads"><li>a* +7.9 → −3.2</li><li>chroma −42%</li><li>contrast +8%</li></ul>
+        <p>Spray frozen at the moment it breaks. The cast came off the water and the sky went back to blue; the spray keeps its edges because the contrast was added locally, not across the frame.</p>
+      </div>
+    </article>
+  </section>
+
+<section class="process">
+  <div class="wrap">
+    <h2>How a job runs</h2>
+    <div class="steps">
+      <div class="step">
+        <span class="n">STEP 01</span>
+        <h3>Send three frames</h3>
+        <p>Not the whole shoot - three files that represent it. I grade one of them free and send it
+          back. If the look is wrong, it is wrong after one frame instead of after a hundred.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEP 02</span>
+        <h3>Agree the look, then the set</h3>
+        <p>Once the reference frame is signed off, everything else is matched to it - not by running
+          one preset over the take, but frame by frame until nothing drifts.</p>
+      </div>
+      <div class="step">
+        <span class="n">STEP 03</span>
+        <h3>Changes, then delivery</h3>
+        <p>Marked up per frame or across the set: warmer, less contrast in the shadows, crop this one
+          wider. Two rounds included, delivered in the format and colour space you publish in.</p>
+      </div>
+    </div>
+
+    <div class="closing">
+      <div>
+        <h3>The part worth paying for is the hundredth frame</h3>
+        <p>Anyone can make one picture look good. The work is making a hundred look like they came from
+          the same afternoon, and doing it on a deadline.</p>
+        <p>Fifteen years of never missing one - most recently running CRM operations, where the
+          delivery either goes out on schedule or it does not go out at all. That habit is as much of
+          the offer as the grading is.</p>
+      </div>
+      <div class="card">
+        <dl>
+          <dt>Based</dt><dd>Riga, Latvia &middot; UTC+2/+3</dd>
+          <dt>Languages</dt><dd>English, Latvian, Russian</dd>
+          <dt>Tools</dt><dd>Lightroom Classic, Photoshop</dd>
+          <dt>Email</dt><dd><a href="mailto:iampranka@gmail.com">iampranka@gmail.com</a></dd>
+          <dt>Instagram</dt><dd><a href="https://www.instagram.com/pranka.vue/" target="_blank" rel="noopener">@pranka.vue</a></dd>
+          <dt>Hire via</dt><dd>
+            <a href="https://www.upwork.com/freelancers/~014da0c186fe851e4a" target="_blank" rel="noopener">Upwork</a>,
+            <a href="https://www.fiverr.com/users/prankka" target="_blank" rel="noopener">Fiverr</a>,
+            <a href="https://www.freelancer.com/u/prankka" target="_blank" rel="noopener">Freelancer</a>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Maria Pranka - colour grading and photo post-production</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  document.querySelectorAll('.cmp.slider').forEach(function(box){
+    var input = box.querySelector('input[type=range]');
+    function draw(){ box.style.setProperty('--p', input.value + '%'); }
+    input.addEventListener('input', draw);
+    draw();
+  });
+})();
+</script>
+
+</body>
+</html>
