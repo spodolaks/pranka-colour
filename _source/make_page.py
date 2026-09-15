@@ -272,12 +272,53 @@ SECTIONS = [
   "not belong in the frame, taken out of it. None of these could be reshot.",
   [75, 3, 71, 103, 24, 25, 104, 40] if False else [75, 3, 71, 103, 24, 25, 104]),
 
- ("06", "Colour as the decision",
+ ("06", "Detail, at full resolution",
+  "Everything above is a 1500-pixel version of a file between 2500 and 8700 pixels wide. At that size "
+  "local work simply disappears - a removal, a rebuilt background, a slope pulled back apart all read "
+  "as nothing at all. These are cut straight out of the files, before and after at the same scale so "
+  "neither one is flattered, and they are the part of the job that usually goes unseen.",
+  ["DETAIL:92", "DETAIL:16", "DETAIL:69", "DETAIL:58", "DETAIL:54", "DETAIL:104"]),
+
+ ("07", "Colour as the decision",
   "Frames where the edit was a decision rather than a repair: convert or keep, saturate or strip, crop "
   "tight or leave the room. Each of these could have gone the other way, and choosing is the service.",
   [67, 27, 80, 46]),
 ]
 
+
+# Detail crops. Cut from the full-size files at full resolution, never resized -
+# see DETAILS in build_all.py for the crop coordinates.
+DETAIL = {
+ 92: ("Crew member, removed", 820,
+      "Somebody from the crew standing in the shot at the moment the frame was taken. Taking a person "
+      "out is the easy half; the work is the moss, the rock edge and the meltwater rebuilt behind him, "
+      "which is what has to survive being looked at closely.",
+      ["820 px of the frame", "person removed"]),
+ 16: ("Fringing on the water", 340,
+      "Specular highlights on moving water are where a fast lens shows its aberration: every bright edge "
+      "carries a magenta and green split. No amount of global saturation work fixes it, because it sits "
+      "on edges rather than on a colour, and a grade applied over the top only makes it louder. Taken "
+      "out first. The green that remains is the look, put there afterwards on purpose.",
+      ["340 px of the frame", "a* > +10: 10.4% \u2192 0.2%"]),
+ 69: ("The number printed on the mask", 220,
+      "The masks were folded from printed sheets, and the sheets carry the maker's marks. On a face "
+      "this size nobody sees it on a screen; at any print size it is the first thing that gives the "
+      "prop away. Off, without flattening the fold it sits on.",
+      ["220 px of the frame", "printed mark removed"]),
+ 58: ("The ring", 300,
+      "A ring on the hand that does not belong in the wardrobe. Off, with the finger and the shadow it "
+      "was casting on the rock rebuilt underneath.",
+      ["300 px of the frame", "ring removed"]),
+ 54: ("Fabric that turned sheer in the light", 300,
+      "Swimwear that reads as opaque on set and does not in the file, which is a wardrobe problem the "
+      "camera creates rather than one anybody could see on the day. Corrected on the garment rather than "
+      "on the body, so the weave holds and the light still falls across it the way it did.",
+      ["300 px of the frame", "garment corrected"]),
+ 104: ("Snow with nothing in it", 760,
+      "The slope came off the card flat - the information was in the file, but nothing in it separated. "
+      "No painting and nothing added: this is what was already there, pulled apart.",
+      ["760 px of the frame", "contrast +63% within the crop"]),
+}
 
 def cmp_block(n, wide=False):
     d = DIM[n]
@@ -331,11 +372,31 @@ def case_block(key):
     </div>"""
 
 
+def detail_block(n):
+    kicker, s, note, reads = DETAIL[n]
+    reads_html = "".join(f"<li>{r}</li>" for r in reads)
+    return f"""    <article class="work">
+      <div class="cmp duo">
+        <figure><img src="img/d{n}-b.jpg" width="{s}" height="{s}" alt="{kicker}, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/d{n}-a.jpg" width="{s}" height="{s}" alt="{kicker}, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      </div>
+      <div class="meta">
+        <h3>{kicker}</h3>
+        <p>{note}</p>
+        <div class="measured"><span>Crop</span><ul class="reads">{reads_html}</ul></div>
+      </div>
+    </article>"""
+
+
 def render(item):
     if isinstance(item, tuple):
         return cmp_block(item[1], wide=True)
     if isinstance(item, str):
-        return case_block(item) if item.startswith("CASE") else grid_block(item)
+        if item.startswith("CASE"):
+            return case_block(item)
+        if item.startswith("DETAIL:"):
+            return detail_block(int(item.split(":")[1]))
+        return grid_block(item)
     return cmp_block(item)
 
 

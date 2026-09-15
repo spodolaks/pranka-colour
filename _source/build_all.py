@@ -28,6 +28,28 @@ MASKS16  = [52, 53, 54, 55, 56, 58, 59, 60, 61, 63, 64, 65, 66, 67, 68, 70]
 SEARCH10 = [7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
 ICELAND8 = [88, 89, 90, 91, 92, 93, 94, 95]
 
+# Detail crops. Cut from the full-size files and saved at the ORIGINAL's own
+# sampling, so before and after are compared at the same scale and neither is
+# flattered by the other's export size.
+#
+# DETAILS: frames whose original and final share framing - (centre x, centre y,
+# square size in original pixels).
+DETAILS = {92: (0.53, 0.38, 820),
+           104: (0.22, 0.57, 760)}
+
+# DETAILS_CROPPED: frames the final was recropped from. REG is the region of the
+# original that the final corresponds to, found once by template matching
+# (see the note in README.md) and pinned here so the build stays fast and
+# repeatable. Coordinates below are fractions of that region.
+REG = {69: (447, 10, 1545, 1663),
+       58: (992, 0, 2045, 1667),
+       54: (7, 5, 1045, 1657),
+       16: (330, 7, 2493, 1665)}
+DETAILS_CROPPED = {16: (0.270, 0.930, 340),
+                   69: (0.227, 0.359, 220),
+                   58: (0.330, 0.620, 300),
+                   54: (0.760, 0.640, 300)}
+
 
 def load(kind, n):
     if kind == "b":
@@ -106,6 +128,29 @@ if __name__ == "__main__":
             save(fb, f"p{n}-b.jpg"); save(fr, f"p{n}-a.jpg")
             manifest.append({"n": n, "mode": "pair", "w": fb.width, "h": fb.height,
                              "w2": fr.width, "h2": fr.height})
+    for n, (fx, fy, s) in DETAILS.items():
+        b, r = load("b", n), load("r", n)
+        if b.size != r.size:
+            raise SystemExit(f"detail {n}: original and final differ in size, cannot crop 1:1")
+        W, H = b.size
+        x0 = max(0, min(W - s, int(W * fx - s / 2)))
+        y0 = max(0, min(H - s, int(H * fy - s / 2)))
+        box = (x0, y0, x0 + s, y0 + s)
+        save(b.crop(box), f"d{n}-b.jpg", q=88, cap=420_000)
+        save(r.crop(box), f"d{n}-a.jpg", q=88, cap=420_000)
+        print(f"detail {n}: {s}px crop at {x0},{y0} of {W}x{H}")
+
+    for n, (fx, fy, s) in DETAILS_CROPPED.items():
+        b = load("b", n).crop(REG[n])          # the part of the original the final came from
+        r = load("r", n)
+        W, H = b.size
+        x0 = max(0, min(W - s, int(W * fx - s / 2)))
+        y0 = max(0, min(H - s, int(H * fy - s / 2)))
+        k = r.width / W                        # the final was exported larger; scale back to match
+        save(b.crop((x0, y0, x0 + s, y0 + s)), f"d{n}-b.jpg", q=90, cap=300_000)
+        save(r.crop((round(x0 * k), round(y0 * k), round((x0 + s) * k), round((y0 + s) * k)))
+              .resize((s, s), Image.LANCZOS), f"d{n}-a.jpg", q=90, cap=300_000)
+        print(f"detail {n}: {s}px crop at {x0},{y0} of the {W}x{H} region, final scaled {k:.2f}x")
     for name, nums, rows, cap in (("grid-masks", MASKS16, 4, 620_000),
                                   ("grid-search", SEARCH10, 3, 520_000),
                                   ("grid-iceland", ICELAND8, 3, 560_000)):
