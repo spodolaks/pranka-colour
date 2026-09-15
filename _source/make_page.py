@@ -12,64 +12,65 @@ ITEM = {
      "Almost the same frame in and out, so the colour is the whole change. Summer green pulled out of "
      "the grass and the far slope, the exposure taken down about a stop and a half, and the white of "
      "the mask and the swimwear held up so the figure survives it.",
-     ["3:2 \u2192 1.42:1", "b* +6.8 \u2192 +1.9", "chroma \u221262%"]),
+     ["3:2 → 10:7", "b* +6.8 → +1.9", "chroma −62%"]),
 67: ("Snowfield above the treeline",
-     "Colour was doing nothing here - green moss on grey rock under white snow. In mono the rock reads as "
-     "mass and the figure finally has somewhere to stand. The recrop moves her off centre and hands the "
+     "Colour was doing nothing here - green moss on grey rock under white snow. Stripped back until the "
+     "rock reads as mass and the figure has somewhere to stand, with the last of the colour left in the "
+     "skin so she does not become another boulder. The recrop moves her off centre and hands the "
      "diagonal to the snowfield.",
-     ["3:2 → 16:10", "converted to mono", "contrast +29%"]),
+     ["3:2 → 1.64:1", "chroma −83%", "contrast +28%"]),
 # --- The Endless Search ------------------------------------------------------
 11: ("Boulder and typewriter, same frame",
      "The reference frame the rest of the set was built from, and the clearest look at what the grade "
      "does on its own: summer green pulled almost entirely out, the whole scene taken down to dusk, and "
      "the figure and the paper held up so they survive it.",
-     ["no crop", "b* +9.9 \u2192 +1.4", "chroma \u221263%"]),
+     ["no crop", "b* +9.8 → +1.4", "chroma −64%"]),
 12: ("Forest, flat daylight in",
      "Shot at midday for a set that had to end up near-nocturnal. Exposure pulled right down, green taken "
      "almost out, and the figure held up with local dodging so she does not go with the rest of it.",
-     ["3:2 → 5:4", "b* +13.8 → +0.7", "chroma −75%"]),
+     ["3:2 → 1.22:1", "b* +13.7 → +0.7", "chroma −75%"]),
 15: ("River crossing, cold grade",
      "Same set, opposite temperature. Summer green taken out of the water and the bank, the whole frame "
      "pushed cold, and the skin kept just warm enough to stay separate from it.",
-     ["b* +8.3 → −6.1", "chroma −32%", "contrast +8%"]),
+     ["b* +8.3 → −6.1", "chroma −33%", "contrast +8%"]),
 # --- Colour casts ------------------------------------------------------------
 100: ("Sea stacks, flat light",
       "The whole stretch of coast came back magenta - not a colour choice, a tint bias in the raws. "
       "Corrected to neutral and then matched across every frame from that shoot, so the set can sit in "
       "one gallery without one picture looking like a different day.",
-      ["a* +8.1 → −0.2", "chroma −66%", "contrast +12%"]),
+      ["a* +8.1 → −0.2", "chroma −65%", "contrast +12%"]),
 99:  ("Painted houses, coastal",
       "Painted houses are the whole subject, so the cast had to come off without taking the paint with it. "
       "Neutral sky and grass, saturation held only where the buildings are.",
-      ["3:2 → 16:10", "a* +4.7 → −2.9", "chroma −47%"]),
+      ["3:2 → 5:3", "a* +4.7 → −2.9", "chroma −47%"]),
 45:  ("Spring snow",
       "Snow is the hardest surface to white-balance: it takes the cast and shows it everywhere at once. "
       "Corrected against the snow, then the rock wall warmed back by hand so the frame keeps two "
       "temperatures instead of one.",
-      ["a* +8.3 → +2.4", "chroma −60%"]),
+      ["a* +8.3 → +2.4", "chroma −59%"]),
 109: ("Cracked flats",
       "Flat light on cracked mud with a warm-magenta cast over both. The correction is what lets the "
       "cracks read as texture instead of noise.",
-      ["b* +7.9 → +2.8", "chroma −54%", "contrast +23%"]),
+      ["b* +7.9 → +2.8", "chroma −54%", "contrast +26%"]),
 72:  ("North face, high cloud",
       "The strongest cast in the take - the snow was coming back lilac. Neutralised, recropped to vertical "
       "for the ridgeline, and the trees pulled down so they stop competing with the couloirs.",
-      ["3:2 → 2:3", "a* +11.0 → +0.5", "chroma −78%"]),
+      ["3:2 → 1:1.55", "a* +11.0 → +0.5", "chroma −78%"]),
 # --- Land, weather, altitude -------------------------------------------------
 75:  ("Storm over a valley town",
       "Handheld, high ISO, into a night storm. The colour was never going to survive - sodium street light "
       "below, violet cast above, lightning between them. Black and white lets the strike separate from "
       "the cloud instead of fighting the town for attention.",
-      ["3:2 → 1:1", "converted to mono", "L̄ 28 → 16"]),
+      ["3:2 → 1.05:1", "converted to mono", "L̄ 28 → 16"]),
 3:   ("Volcano above a hill town",
       "Midday haze had flattened mountain, town and sky into one plane. Dehaze plus a split tone puts "
       "them back at three distances; the crop drops a bright edge that was pulling the eye out of frame.",
-      ["3:2 → 16:10", "b* −5.8 → −2.2"]),
+      ["3:2 → 13:8", "b* −5.8 → −2.2"]),
 103: ("Aerial, glacial water",
       "Drone frames carry their own problems: low contrast through the air column, a colour shift with "
       "altitude, and a horizon that is never quite where you left it. Straightened, cropped panoramic, "
       "and the water separated from the rock on colour rather than saturation.",
-      ["3:2 → 2:1", "b* −10.5 → −3.0", "chroma −59%"]),
+      ["3:2 → 1.92:1", "b* −10.4 → −3.0", "chroma −58%"]),
 104: ("Ridge under cloud",
       "A frame where colour was working against the picture - a lilac sky flattening a mountain that is "
       "entirely about form. Nearly all of it taken out, then the exposure dropped hard so the snow does "
@@ -79,12 +80,12 @@ ITEM = {
       "A camera bag and a second black case were lying in the grass at the bottom left. Both removed and "
       "the ground rebuilt underneath, then the blown sky recovered and the whole frame taken down so the "
       "snowfield stops burning out.",
-      ["objects removed", "L̄ 79 → 67", "contrast +22%"]),
+      ["objects removed", "L̄ 79 → 67", "contrast +20%"]),
 # --- People on location ------------------------------------------------------
 47:  ("Lakeside, overcast",
       "Nothing but available light and most of it wrong. Cast off, subject lifted about half a stop "
       "against the water, background cooled so she comes forward without a cut-out.",
-      ["a* +8.4 → −2.9", "chroma −36%", "contrast +5%"]),
+      ["a* +8.4 → −2.9", "chroma −36%", "contrast +6%"]),
 23:  ("Sandstone cave",
       "The sandstone was bouncing warm light onto everything, costume included. The grade splits them "
       "again - warm wall, cool figure - which is the separation the frame needed and a selection would "
@@ -97,96 +98,96 @@ ITEM = {
 96:  ("Close portrait, flowers",
       "Colour work only. The wood and the hair were the same orange; pulling them apart on the red "
       "channel is what puts the face in front of the background.",
-      ["3:2 → 4:3", "a* +20.4 → +7.8", "chroma −51%"]),
+      ["3:2 → 11:8", "a* +20.4 → +7.8", "chroma −51%"]),
 6:   ("Coast, midday sun",
       "Blown sky, blocked rocks, about one stop of usable range between them. Highlight and shadow "
       "recovery first, then a crop to vertical because the horizon was the least interesting thing in "
       "the picture.",
-      ["2:3 → 4:5", "contrast +41%"]),
+      ["2:3 → 1:1.18", "contrast +41%"]),
 54: ("Lake edge, paper ears",
      "Shot into the light with a white paper prop, white swimwear and a bright lake behind - every "
      "highlight on the edge of clipping. Recovered first, then the whole frame taken down more than two "
      "stops and recropped to vertical, with the paper held as the only clean white left.",
-     ["3:2 \u2192 2:3", "L\u0304 42 \u2192 20", "chroma \u221237%"]),
+     ["3:2 → 1:1.59", "L̄ 42 → 20", "chroma −37%"]),
 56: ("Boulder in the pines",
      "Midday sun on green scrub, which is the worst light this series could have had. Green stripped "
      "almost out, exposure down nearly three stops, and the figure recovered back out of the shadow it "
      "would otherwise have fallen into.",
-     ["3:2 \u2192 2:3", "L\u0304 41 \u2192 12", "chroma \u221266%"]),
+     ["3:2 → 1:1.44", "L̄ 41 → 12", "chroma −67%"]),
 59: ("Snowmelt, running water",
      "Snow, whitewater and a white mask in one frame - three different whites, all of them blown. Each "
      "recovered separately so they stay distinguishable, then the rock dropped to hold them apart.",
-     ["3:2 \u2192 5:3", "L\u0304 67 \u2192 29", "chroma \u221240%"]),
+     ["3:2 → 5:3", "L̄ 67 → 29", "chroma −42%"]),
 65: ("Boulder field, wide",
      "Colour taken almost entirely out and the contrast pushed instead, so the frame reads as rock "
      "against snow. Cropped wide because the scale of the boulders is the story and the figure is "
      "supposed to be small in it.",
-     ["3:2 \u2192 2:1", "chroma \u221283%", "contrast +32%"]),
+     ["3:2 → 2.07:1", "chroma −82%", "contrast +33%"]),
 69: ("Meadow, storm light",
      "Sun on the grass, storm on the ridge behind - two light sources pulling in opposite directions. "
      "The meadow is graded down to match the sky rather than the other way round, and the crop drops "
      "the horizon so the cloud does the work.",
-     ["3:2 \u2192 2:3", "L\u0304 59 \u2192 27", "chroma \u221266%"]),
+     ["3:2 → 2:3", "L̄ 59 → 27", "chroma −66%"]),
 9:  ("Hillside at golden hour, uncropped",
      "The second frame in the set that needed no crop at all, which makes it the other clean look at "
      "the grade on its own. Warmth pulled back out of the grass, the whole frame taken down, and the "
      "figure and the typewriter kept readable in what is left.",
-     ["no crop", "b* +10.3 \u2192 +5.2", "chroma \u221243%"]),
+     ["no crop", "b* +10.4 → +5.2", "chroma −43%"]),
 8:  ("Roadside, black dress",
      "Same set, opposite problem: a bright overcast sky with nothing in it. Recovered and cooled, the "
      "bank warmed slightly against it, and the crop tightened to 4:3 so the sky stops taking half "
      "the picture.",
-     ["3:2 \u2192 4:3", "b* +5.8 \u2192 \u22121.2", "chroma \u221237%"]),
+     ["3:2 → 4:3", "b* +5.8 → −1.1", "chroma −37%"]),
 94: ("Black sand, breaking wave, uncropped",
      "Straight out of the camera with the blue cast the whole trip came back with. Corrected to "
      "neutral, the spray recovered, and the sand taken down until the cloak and the white water are "
      "the only two things left with any brightness.",
-     ["no crop", "a* +8.8 \u2192 \u22124.1", "chroma \u221249%"]),
+     ["no crop", "a* +8.8 → −4.1", "chroma −48%"]),
 92: ("Moss and meltwater, second person removed",
      "There was a crew member standing at the right of the frame in a black t-shirt and jeans. Removed, "
      "and the rock and moss rebuilt behind where he was standing. After that the green is lifted on its "
      "own channel so the moss carries the frame and the dress stays a different green from it.",
-     ["person removed", "a* +5.2 \u2192 \u22129.9", "chroma +36%"]),
-89: ("Lava field, converted",
+     ["person removed", "a* +5.2 → −9.8", "chroma +33%"]),
+89: ("Lava field, colour taken out",
      "Strong magenta over sand that had almost no colour in it to begin with - so the honest answer was "
-     "to take colour out of the decision entirely. Converted, recropped wider, and the dress left as "
-     "the only true black in the frame.",
-     ["3:2 \u2192 5:3", "a* +10.7 \u2192 \u22120.5", "converted to mono"]),
+     "to take colour out of the decision almost entirely. Pulled down to a trace, recropped wider, and "
+     "the dress left as the only true black in the frame.",
+     ["3:2 → 12:7", "a* +10.7 → −0.5", "chroma −91%"]),
 21: ("Rocks and surf, uncropped",
      "Nothing moved, nothing cropped - the frame was already right. Blue pulled out of the rock, the "
      "surf held back from clipping, and the subject warmed about half a stop so she separates from a "
      "background that is the same tonal range as she is.",
-     ["no crop", "a* +0.5 \u2192 \u22121.0", "chroma \u221229%"]),
+     ["no crop", "a* +0.6 → −1.0", "chroma −29%"]),
 24: ("City at night, long exposure",
      "Sodium street light over everything, which on a night frame means the whole picture is one colour. "
      "Balanced back, the traffic trails left warm on purpose, and the buildings dropped so the roads "
      "are what the eye follows.",
-     ["no crop", "b* +12.9 \u2192 +3.3", "chroma \u221237%"]),
+     ["no crop", "b* +12.9 → +3.3", "chroma −36%"]),
 25: ("Valley wall from above",
      "About one stop of usable contrast in the whole original. Local contrast added across the slope "
      "rather than a global curve, which is what separates the fields, the scree and the rock face into "
      "three readable things instead of one grey mass.",
-     ["no crop", "L\u0304 28 \u2192 19", "contrast +12%"]),
+     ["no crop", "L̄ 28 → 18", "contrast +13%"]),
 27: ("Sea cliff, cropped vertical",
      "A colour decision and a crop decision in the same frame. The blue is taken almost fully out of "
      "the water so the cliff face reads as rock, and the frame is cut to 4:5 so the drop is the subject "
      "instead of the bay.",
-     ["3:2 \u2192 4:5", "b* \u22127.8 \u2192 \u22121.6", "chroma \u221253%"]),
+     ["3:2 → 1:1.15", "b* −7.8 → −1.6", "chroma −51%"]),
 50: ("Rocks, riding coat",
      "The strongest magenta cast in this part of the take and the easiest to see it go: the stone comes "
      "back grey, the white trousers come back white, and the contrast lift is what gives the rock its "
      "texture again.",
-     ["no crop", "a* +10.2 \u2192 \u22121.7", "contrast +25%"]),
+     ["no crop", "a* +10.2 → −1.6", "contrast +25%"]),
 71: ("Town from above, dusk",
      "Drone frame at the end of the light, flat and murky. Red roofs kept as the only saturated thing, "
      "everything else cooled and dropped, and enough local contrast added that the streets read from "
      "that height.",
-     ["no crop", "contrast +25%", "a* +12.1 \u2192 +8.4"]),
+     ["no crop", "contrast +26%", "a* +12.1 → +8.4"]),
 73: ("Pass road into cloud",
      "The cast was doing the most damage here because the whole frame is cloud, and cloud has nowhere "
      "to hide a tint. Neutralised, then the road held slightly brighter than the fog so there is still "
      "somewhere for the eye to go.",
-     ["a* +7.3 \u2192 +0.3", "chroma \u221274%"]),
+     ["a* +7.2 → +0.3", "chroma −74%"]),
 # --- Colour as the decision --------------------------------------------------
 80:  ("Poppy field",
       "Selective colour, not a filter. The field goes back to green and grey; only the flowers she is "
@@ -195,12 +196,12 @@ ITEM = {
 46:  ("Wave, breaking",
       "Spray frozen at the moment it breaks. The cast came off the water and the sky went back to blue; "
       "the spray keeps its edges because the contrast was added locally, not across the frame.",
-      ["a* +7.9 → −3.2", "chroma −42%", "contrast +8%"]),
+      ["a* +7.9 → −3.0", "chroma −40%", "contrast +8%"]),
 106: ("Umbrella in the fog",
       "Snow coming down in flat white light, which leaves nothing in the frame with any edge to it. "
       "The magenta cast came off first, then the treeline and the pylons were pulled back in behind the "
       "fog, and the umbrella left as the brightest thing so the figure has something to stand against.",
-      ["a* +7.9 \u2192 \u22121.0", "chroma \u221253%", "contrast +23%"]),
+      ["a* +7.9 → −1.0", "chroma −52%", "contrast +22%"]),
 }
 
 GRIDS = {
@@ -262,7 +263,8 @@ SECTIONS = [
  ("04", "Portraits on location",
   "Available light, no studio, no strobes. Subjects are separated from their backgrounds with exposure "
   "and colour rather than selections - slower to do, and much harder for anyone to spot afterwards. "
-  "No beauty or skin retouching: that is a different craft.",
+  "Beauty and skin retouching is its own specialisation and stays with a specialist. This is the "
+  "image as a whole: colour, light, separation and finish.",
   [21, 106, 96, 6]),
 
  ("05", "Landscape, travel and drone",
@@ -301,8 +303,8 @@ def cmp_block(n, wide=False):
 {media}
       <div class="meta">
         <h3>{kicker}</h3>
-        <ul class="reads">{reads_html}</ul>
         <p>{note}</p>
+        <div class="measured"><span>Measured</span><ul class="reads">{reads_html}</ul></div>
       </div>
     </article>"""
 

@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pranka Colour</title>
 <meta name="description" content="Colour grading and retouching for whole shoots - matched frame by frame. Before and after on every image.">
 <meta name="author" content="Maria Pranka">
 <meta name="theme-color" content="#101211">
@@ -23,7 +24,6 @@
 <meta name="twitter:title" content="Maria Pranka - colour grading and retouching">
 <meta name="twitter:description" content="Colour grading and retouching for whole shoots - matched frame by frame. Before and after on every image.">
 <meta name="twitter:image" content="https://pranka.id.lv/img/og.jpg">
-<title>Pranka Colour</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -179,11 +179,16 @@ h1{
   font:500 12px/1.35 var(--f-mono); letter-spacing:.07em; text-transform:uppercase;
   margin:0 0 13px; color:var(--ink); padding-bottom:11px; border-bottom:1px solid var(--rule);
 }
-.reads{list-style:none; margin:0 0 14px; padding:0; display:flex; flex-wrap:wrap; gap:6px}
+.meta p{margin:0; font-size:14.5px; line-height:1.65; color:var(--ink2)}
+.measured{margin:14px 0 0; padding:11px 0 0; border-top:1px solid var(--rule)}
+.measured>span{
+  display:block; margin:0 0 7px;
+  font:500 10px/1 var(--f-mono); letter-spacing:.12em; text-transform:uppercase; color:var(--ink3);
+}
+.reads{list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:6px}
 .reads li{
   font:400 11.5px/1 var(--f-mono); padding:6px 9px; color:var(--accent); background:var(--accent-soft);
 }
-.meta p{margin:0; font-size:14.5px; line-height:1.65; color:var(--ink2)}
 
 /* ---------- comparison ---------- */
 .cmp{position:relative; background:var(--frame); overflow:hidden}
@@ -236,6 +241,14 @@ h1{
 }
 
 /* ---------- process + contact ---------- */
+.closing .ask{margin:28px 0 12px; font:600 21px/1.3 var(--f-body); color:var(--ink)}
+.closing .cta{margin:0}
+.cta a{
+  display:inline-block; padding:12px 20px; background:var(--accent); color:#fff;
+  font:600 14px/1 var(--f-body); text-decoration:none;
+}
+.cta a:hover{background:var(--ink)}
+.cta i{font-style:normal; opacity:.75; margin-left:4px}
 .process .wrap{padding-block:clamp(46px,7vw,80px)}
 .process h2{
   font-size:clamp(24px,3.4vw,33px); line-height:1.1; margin:0 0 32px;
@@ -345,8 +358,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Boulder and typewriter, same frame</h3>
-        <ul class="reads"><li>no crop</li><li>b* +9.9 → +1.4</li><li>chroma −63%</li></ul>
         <p>The reference frame the rest of the set was built from, and the clearest look at what the grade does on its own: summer green pulled almost entirely out, the whole scene taken down to dusk, and the figure and the paper held up so they survive it.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>no crop</li><li>b* +9.8 → +1.4</li><li>chroma −64%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -360,8 +373,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Hillside at golden hour, uncropped</h3>
-        <ul class="reads"><li>no crop</li><li>b* +10.3 → +5.2</li><li>chroma −43%</li></ul>
         <p>The second frame in the set that needed no crop at all, which makes it the other clean look at the grade on its own. Warmth pulled back out of the grass, the whole frame taken down, and the figure and the typewriter kept readable in what is left.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>no crop</li><li>b* +10.4 → +5.2</li><li>chroma −43%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -371,8 +384,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Forest, flat daylight in</h3>
-        <ul class="reads"><li>3:2 → 5:4</li><li>b* +13.8 → +0.7</li><li>chroma −75%</li></ul>
         <p>Shot at midday for a set that had to end up near-nocturnal. Exposure pulled right down, green taken almost out, and the figure held up with local dodging so she does not go with the rest of it.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 1.22:1</li><li>b* +13.7 → +0.7</li><li>chroma −75%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -382,8 +395,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>River crossing, cold grade</h3>
-        <ul class="reads"><li>b* +8.3 → −6.1</li><li>chroma −32%</li><li>contrast +8%</li></ul>
         <p>Same set, opposite temperature. Summer green taken out of the water and the bank, the whole frame pushed cold, and the skin kept just warm enough to stay separate from it.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>b* +8.3 → −6.1</li><li>chroma −33%</li><li>contrast +8%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -393,8 +406,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Roadside, black dress</h3>
-        <ul class="reads"><li>3:2 → 4:3</li><li>b* +5.8 → −1.2</li><li>chroma −37%</li></ul>
         <p>Same set, opposite problem: a bright overcast sky with nothing in it. Recovered and cooled, the bank warmed slightly against it, and the crop tightened to 4:3 so the sky stops taking half the picture.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 4:3</li><li>b* +5.8 → −1.1</li><li>chroma −37%</li></ul></div>
       </div>
     </article>
     <article class="work wide">
@@ -422,30 +435,34 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Black sand, breaking wave, uncropped</h3>
-        <ul class="reads"><li>no crop</li><li>a* +8.8 → −4.1</li><li>chroma −49%</li></ul>
         <p>Straight out of the camera with the blue cast the whole trip came back with. Corrected to neutral, the spray recovered, and the sand taken down until the cloak and the white water are the only two things left with any brightness.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>no crop</li><li>a* +8.8 → −4.1</li><li>chroma −48%</li></ul></div>
       </div>
     </article>
     <article class="work">
-      <div class="cmp duo">
-        <figure><img src="img/p92-b.jpg" width="1500" height="1000" alt="Moss and meltwater, second person removed, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
-        <figure><img src="img/p92-a.jpg" width="1500" height="1000" alt="Moss and meltwater, second person removed, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+      <div class="cmp slider" style="aspect-ratio:1500/1000">
+        <img src="img/p92-b.jpg" width="1500" height="1000" alt="Moss and meltwater, second person removed, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p92-a.jpg" width="1500" height="1000" alt="Moss and meltwater, second person removed, after" loading="lazy" decoding="async"></div>
+        <span class="bar" aria-hidden="true"><span class="grip"></span></span>
+        <span class="tag l" aria-hidden="true">Before</span>
+        <span class="tag r" aria-hidden="true">After</span>
+        <input type="range" min="0" max="100" value="52" id="sl92" aria-label="Reveal the graded version of Moss and meltwater, second person removed">
       </div>
       <div class="meta">
         <h3>Moss and meltwater, second person removed</h3>
-        <ul class="reads"><li>person removed</li><li>a* +5.2 → −9.9</li><li>chroma +36%</li></ul>
         <p>There was a crew member standing at the right of the frame in a black t-shirt and jeans. Removed, and the rock and moss rebuilt behind where he was standing. After that the green is lifted on its own channel so the moss carries the frame and the dress stays a different green from it.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>person removed</li><li>a* +5.2 → −9.8</li><li>chroma +33%</li></ul></div>
       </div>
     </article>
     <article class="work">
       <div class="cmp duo">
-        <figure><img src="img/p89-b.jpg" width="1500" height="1000" alt="Lava field, converted, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
-        <figure><img src="img/p89-a.jpg" width="1500" height="879" alt="Lava field, converted, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
+        <figure><img src="img/p89-b.jpg" width="1500" height="1000" alt="Lava field, colour taken out, before" loading="lazy" decoding="async"><figcaption>Before</figcaption></figure>
+        <figure><img src="img/p89-a.jpg" width="1500" height="879" alt="Lava field, colour taken out, after" loading="lazy" decoding="async"><figcaption>After</figcaption></figure>
       </div>
       <div class="meta">
-        <h3>Lava field, converted</h3>
-        <ul class="reads"><li>3:2 → 5:3</li><li>a* +10.7 → −0.5</li><li>converted to mono</li></ul>
-        <p>Strong magenta over sand that had almost no colour in it to begin with - so the honest answer was to take colour out of the decision entirely. Converted, recropped wider, and the dress left as the only true black in the frame.</p>
+        <h3>Lava field, colour taken out</h3>
+        <p>Strong magenta over sand that had almost no colour in it to begin with - so the honest answer was to take colour out of the decision almost entirely. Pulled down to a trace, recropped wider, and the dress left as the only true black in the frame.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 12:7</li><li>a* +10.7 → −0.5</li><li>chroma −91%</li></ul></div>
       </div>
     </article>
     <article class="work wide">
@@ -463,9 +480,9 @@ footer .wrap{
       <p>The hardest of the three. White paper masks and white swimwear in full mountain sun, so almost every frame came off the card with the highlights clipped: the recovery had to happen before any look could be applied. Then a crop per frame to carry the story, and a selective preset built for each mask so the paper stays paper-white while everything around it drops two or three stops. Doing that once is an edit. Doing it nineteen times and still having one series is the work. Delivered as full-resolution masters.</p>
     </div>
     <article class="work">
-      <div class="cmp slider" style="aspect-ratio:1500/1054">
-        <img src="img/p52-b.jpg" width="1500" height="1054" alt="Fox mask on the meadow, uncropped, before" loading="lazy" decoding="async">
-        <div class="rev"><img src="img/p52-a.jpg" width="1500" height="1054" alt="Fox mask on the meadow, uncropped, after" loading="lazy" decoding="async"></div>
+      <div class="cmp slider" style="aspect-ratio:1500/1052">
+        <img src="img/p52-b.jpg" width="1500" height="1052" alt="Fox mask on the meadow, uncropped, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p52-a.jpg" width="1500" height="1052" alt="Fox mask on the meadow, uncropped, after" loading="lazy" decoding="async"></div>
         <span class="bar" aria-hidden="true"><span class="grip"></span></span>
         <span class="tag l" aria-hidden="true">Before</span>
         <span class="tag r" aria-hidden="true">After</span>
@@ -473,8 +490,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Fox mask on the meadow, uncropped</h3>
-        <ul class="reads"><li>3:2 → 1.42:1</li><li>b* +6.8 → +1.9</li><li>chroma −62%</li></ul>
         <p>Almost the same frame in and out, so the colour is the whole change. Summer green pulled out of the grass and the far slope, the exposure taken down about a stop and a half, and the white of the mask and the swimwear held up so the figure survives it.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 10:7</li><li>b* +6.8 → +1.9</li><li>chroma −62%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -484,8 +501,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Lake edge, paper ears</h3>
-        <ul class="reads"><li>3:2 → 2:3</li><li>L̄ 42 → 20</li><li>chroma −37%</li></ul>
         <p>Shot into the light with a white paper prop, white swimwear and a bright lake behind - every highlight on the edge of clipping. Recovered first, then the whole frame taken down more than two stops and recropped to vertical, with the paper held as the only clean white left.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 1:1.59</li><li>L̄ 42 → 20</li><li>chroma −37%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -495,8 +512,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Boulder in the pines</h3>
-        <ul class="reads"><li>3:2 → 2:3</li><li>L̄ 41 → 12</li><li>chroma −66%</li></ul>
         <p>Midday sun on green scrub, which is the worst light this series could have had. Green stripped almost out, exposure down nearly three stops, and the figure recovered back out of the shadow it would otherwise have fallen into.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 1:1.44</li><li>L̄ 41 → 12</li><li>chroma −67%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -506,8 +523,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Snowmelt, running water</h3>
-        <ul class="reads"><li>3:2 → 5:3</li><li>L̄ 67 → 29</li><li>chroma −40%</li></ul>
         <p>Snow, whitewater and a white mask in one frame - three different whites, all of them blown. Each recovered separately so they stay distinguishable, then the rock dropped to hold them apart.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 5:3</li><li>L̄ 67 → 29</li><li>chroma −42%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -517,8 +534,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Boulder field, wide</h3>
-        <ul class="reads"><li>3:2 → 2:1</li><li>chroma −83%</li><li>contrast +32%</li></ul>
         <p>Colour taken almost entirely out and the contrast pushed instead, so the frame reads as rock against snow. Cropped wide because the scale of the boulders is the story and the figure is supposed to be small in it.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 2.07:1</li><li>chroma −82%</li><li>contrast +33%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -528,8 +545,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Meadow, storm light</h3>
-        <ul class="reads"><li>3:2 → 2:3</li><li>L̄ 59 → 27</li><li>chroma −66%</li></ul>
         <p>Sun on the grass, storm on the ridge behind - two light sources pulling in opposite directions. The meadow is graded down to match the sky rather than the other way round, and the crop drops the horizon so the cloud does the work.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 2:3</li><li>L̄ 59 → 27</li><li>chroma −66%</li></ul></div>
       </div>
     </article>
     <article class="work wide">
@@ -559,8 +576,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Lakeside, overcast</h3>
-        <ul class="reads"><li>a* +8.4 → −2.9</li><li>chroma −36%</li><li>contrast +5%</li></ul>
         <p>Nothing but available light and most of it wrong. Cast off, subject lifted about half a stop against the water, background cooled so she comes forward without a cut-out.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>a* +8.4 → −2.9</li><li>chroma −36%</li><li>contrast +6%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -574,8 +591,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Sea stacks, flat light</h3>
-        <ul class="reads"><li>a* +8.1 → −0.2</li><li>chroma −66%</li><li>contrast +12%</li></ul>
         <p>The whole stretch of coast came back magenta - not a colour choice, a tint bias in the raws. Corrected to neutral and then matched across every frame from that shoot, so the set can sit in one gallery without one picture looking like a different day.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>a* +8.1 → −0.2</li><li>chroma −65%</li><li>contrast +12%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -589,8 +606,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Lake and glacier, gear removed</h3>
-        <ul class="reads"><li>objects removed</li><li>L̄ 79 → 67</li><li>contrast +22%</li></ul>
         <p>A camera bag and a second black case were lying in the grass at the bottom left. Both removed and the ground rebuilt underneath, then the blown sky recovered and the whole frame taken down so the snowfield stops burning out.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>objects removed</li><li>L̄ 79 → 67</li><li>contrast +20%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -604,8 +621,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Sandstone cave</h3>
-        <ul class="reads"><li>a* +6.0 → +1.1</li><li>chroma −49%</li><li>contrast +11%</li></ul>
         <p>The sandstone was bouncing warm light onto everything, costume included. The grade splits them again - warm wall, cool figure - which is the separation the frame needed and a selection would have faked.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>a* +6.0 → +1.1</li><li>chroma −49%</li><li>contrast +11%</li></ul></div>
       </div>
     </article>
   </section>
@@ -626,8 +643,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Rocks, riding coat</h3>
-        <ul class="reads"><li>no crop</li><li>a* +10.2 → −1.7</li><li>contrast +25%</li></ul>
         <p>The strongest magenta cast in this part of the take and the easiest to see it go: the stone comes back grey, the white trousers come back white, and the contrast lift is what gives the rock its texture again.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>no crop</li><li>a* +10.2 → −1.6</li><li>contrast +25%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -637,8 +654,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Painted houses, coastal</h3>
-        <ul class="reads"><li>3:2 → 16:10</li><li>a* +4.7 → −2.9</li><li>chroma −47%</li></ul>
         <p>Painted houses are the whole subject, so the cast had to come off without taking the paint with it. Neutral sky and grass, saturation held only where the buildings are.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 5:3</li><li>a* +4.7 → −2.9</li><li>chroma −47%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -652,8 +669,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Spring snow</h3>
-        <ul class="reads"><li>a* +8.3 → +2.4</li><li>chroma −60%</li></ul>
         <p>Snow is the hardest surface to white-balance: it takes the cast and shows it everywhere at once. Corrected against the snow, then the rock wall warmed back by hand so the frame keeps two temperatures instead of one.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>a* +8.3 → +2.4</li><li>chroma −59%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -667,14 +684,14 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Pass road into cloud</h3>
-        <ul class="reads"><li>a* +7.3 → +0.3</li><li>chroma −74%</li></ul>
         <p>The cast was doing the most damage here because the whole frame is cloud, and cloud has nowhere to hide a tint. Neutralised, then the road held slightly brighter than the fog so there is still somewhere for the eye to go.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>a* +7.2 → +0.3</li><li>chroma −74%</li></ul></div>
       </div>
     </article>
     <article class="work">
-      <div class="cmp slider" style="aspect-ratio:1500/988">
-        <img src="img/p109-b.jpg" width="1500" height="988" alt="Cracked flats, before" loading="lazy" decoding="async">
-        <div class="rev"><img src="img/p109-a.jpg" width="1500" height="988" alt="Cracked flats, after" loading="lazy" decoding="async"></div>
+      <div class="cmp slider" style="aspect-ratio:1500/976">
+        <img src="img/p109-b.jpg" width="1500" height="976" alt="Cracked flats, before" loading="lazy" decoding="async">
+        <div class="rev"><img src="img/p109-a.jpg" width="1500" height="976" alt="Cracked flats, after" loading="lazy" decoding="async"></div>
         <span class="bar" aria-hidden="true"><span class="grip"></span></span>
         <span class="tag l" aria-hidden="true">Before</span>
         <span class="tag r" aria-hidden="true">After</span>
@@ -682,8 +699,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Cracked flats</h3>
-        <ul class="reads"><li>b* +7.9 → +2.8</li><li>chroma −54%</li><li>contrast +23%</li></ul>
         <p>Flat light on cracked mud with a warm-magenta cast over both. The correction is what lets the cracks read as texture instead of noise.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>b* +7.9 → +2.8</li><li>chroma −54%</li><li>contrast +26%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -693,8 +710,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>North face, high cloud</h3>
-        <ul class="reads"><li>3:2 → 2:3</li><li>a* +11.0 → +0.5</li><li>chroma −78%</li></ul>
         <p>The strongest cast in the take - the snow was coming back lilac. Neutralised, recropped to vertical for the ridgeline, and the trees pulled down so they stop competing with the couloirs.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 1:1.55</li><li>a* +11.0 → +0.5</li><li>chroma −78%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -708,8 +725,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Parking structure, night</h3>
-        <ul class="reads"><li>a* +3.8 → −4.0</li><li>L̄ 25 → 31</li></ul>
         <p>Mixed sodium and fluorescent, nothing neutral in the frame to balance against. Balanced on the white garment instead, then the concrete cooled until the two light sources agree.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>a* +3.8 → −4.0</li><li>L̄ 25 → 31</li></ul></div>
       </div>
     </article>
   </section>
@@ -717,7 +734,7 @@ footer .wrap{
     <header class="chead">
       <span class="idx">§04</span>
       <h2>Portraits on location</h2>
-      <p class="intro">Available light, no studio, no strobes. Subjects are separated from their backgrounds with exposure and colour rather than selections - slower to do, and much harder for anyone to spot afterwards. No beauty or skin retouching: that is a different craft.</p>
+      <p class="intro">Available light, no studio, no strobes. Subjects are separated from their backgrounds with exposure and colour rather than selections - slower to do, and much harder for anyone to spot afterwards. Beauty and skin retouching is its own specialisation and stays with a specialist. This is the image as a whole: colour, light, separation and finish.</p>
     </header>
     <article class="work">
       <div class="cmp slider" style="aspect-ratio:1500/1000">
@@ -730,8 +747,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Rocks and surf, uncropped</h3>
-        <ul class="reads"><li>no crop</li><li>a* +0.5 → −1.0</li><li>chroma −29%</li></ul>
         <p>Nothing moved, nothing cropped - the frame was already right. Blue pulled out of the rock, the surf held back from clipping, and the subject warmed about half a stop so she separates from a background that is the same tonal range as she is.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>no crop</li><li>a* +0.6 → −1.0</li><li>chroma −29%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -745,8 +762,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Umbrella in the fog</h3>
-        <ul class="reads"><li>a* +7.9 → −1.0</li><li>chroma −53%</li><li>contrast +23%</li></ul>
         <p>Snow coming down in flat white light, which leaves nothing in the frame with any edge to it. The magenta cast came off first, then the treeline and the pylons were pulled back in behind the fog, and the umbrella left as the brightest thing so the figure has something to stand against.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>a* +7.9 → −1.0</li><li>chroma −52%</li><li>contrast +22%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -756,8 +773,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Close portrait, flowers</h3>
-        <ul class="reads"><li>3:2 → 4:3</li><li>a* +20.4 → +7.8</li><li>chroma −51%</li></ul>
         <p>Colour work only. The wood and the hair were the same orange; pulling them apart on the red channel is what puts the face in front of the background.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 11:8</li><li>a* +20.4 → +7.8</li><li>chroma −51%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -767,8 +784,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Coast, midday sun</h3>
-        <ul class="reads"><li>2:3 → 4:5</li><li>contrast +41%</li></ul>
         <p>Blown sky, blocked rocks, about one stop of usable range between them. Highlight and shadow recovery first, then a crop to vertical because the horizon was the least interesting thing in the picture.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>2:3 → 1:1.18</li><li>contrast +41%</li></ul></div>
       </div>
     </article>
   </section>
@@ -785,8 +802,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Storm over a valley town</h3>
-        <ul class="reads"><li>3:2 → 1:1</li><li>converted to mono</li><li>L̄ 28 → 16</li></ul>
         <p>Handheld, high ISO, into a night storm. The colour was never going to survive - sodium street light below, violet cast above, lightning between them. Black and white lets the strike separate from the cloud instead of fighting the town for attention.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 1.05:1</li><li>converted to mono</li><li>L̄ 28 → 16</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -796,8 +813,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Volcano above a hill town</h3>
-        <ul class="reads"><li>3:2 → 16:10</li><li>b* −5.8 → −2.2</li></ul>
         <p>Midday haze had flattened mountain, town and sky into one plane. Dehaze plus a split tone puts them back at three distances; the crop drops a bright edge that was pulling the eye out of frame.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 13:8</li><li>b* −5.8 → −2.2</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -811,8 +828,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Town from above, dusk</h3>
-        <ul class="reads"><li>no crop</li><li>contrast +25%</li><li>a* +12.1 → +8.4</li></ul>
         <p>Drone frame at the end of the light, flat and murky. Red roofs kept as the only saturated thing, everything else cooled and dropped, and enough local contrast added that the streets read from that height.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>no crop</li><li>contrast +26%</li><li>a* +12.1 → +8.4</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -822,8 +839,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Aerial, glacial water</h3>
-        <ul class="reads"><li>3:2 → 2:1</li><li>b* −10.5 → −3.0</li><li>chroma −59%</li></ul>
         <p>Drone frames carry their own problems: low contrast through the air column, a colour shift with altitude, and a horizon that is never quite where you left it. Straightened, cropped panoramic, and the water separated from the rock on colour rather than saturation.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 1.92:1</li><li>b* −10.4 → −3.0</li><li>chroma −58%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -837,8 +854,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>City at night, long exposure</h3>
-        <ul class="reads"><li>no crop</li><li>b* +12.9 → +3.3</li><li>chroma −37%</li></ul>
         <p>Sodium street light over everything, which on a night frame means the whole picture is one colour. Balanced back, the traffic trails left warm on purpose, and the buildings dropped so the roads are what the eye follows.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>no crop</li><li>b* +12.9 → +3.3</li><li>chroma −36%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -852,8 +869,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Valley wall from above</h3>
-        <ul class="reads"><li>no crop</li><li>L̄ 28 → 19</li><li>contrast +12%</li></ul>
         <p>About one stop of usable contrast in the whole original. Local contrast added across the slope rather than a global curve, which is what separates the fields, the scree and the rock face into three readable things instead of one grey mass.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>no crop</li><li>L̄ 28 → 18</li><li>contrast +13%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -867,8 +884,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Ridge under cloud</h3>
-        <ul class="reads"><li>a* +9.5 → −0.2</li><li>chroma −78%</li><li>L̄ 48 → 23</li></ul>
         <p>A frame where colour was working against the picture - a lilac sky flattening a mountain that is entirely about form. Nearly all of it taken out, then the exposure dropped hard so the snow does the drawing.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>a* +9.5 → −0.2</li><li>chroma −78%</li><li>L̄ 48 → 23</li></ul></div>
       </div>
     </article>
   </section>
@@ -885,8 +902,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Snowfield above the treeline</h3>
-        <ul class="reads"><li>3:2 → 16:10</li><li>converted to mono</li><li>contrast +29%</li></ul>
-        <p>Colour was doing nothing here - green moss on grey rock under white snow. In mono the rock reads as mass and the figure finally has somewhere to stand. The recrop moves her off centre and hands the diagonal to the snowfield.</p>
+        <p>Colour was doing nothing here - green moss on grey rock under white snow. Stripped back until the rock reads as mass and the figure has somewhere to stand, with the last of the colour left in the skin so she does not become another boulder. The recrop moves her off centre and hands the diagonal to the snowfield.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 1.64:1</li><li>chroma −83%</li><li>contrast +28%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -896,8 +913,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Sea cliff, cropped vertical</h3>
-        <ul class="reads"><li>3:2 → 4:5</li><li>b* −7.8 → −1.6</li><li>chroma −53%</li></ul>
         <p>A colour decision and a crop decision in the same frame. The blue is taken almost fully out of the water so the cliff face reads as rock, and the frame is cut to 4:5 so the drop is the subject instead of the bay.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>3:2 → 1:1.15</li><li>b* −7.8 → −1.6</li><li>chroma −51%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -911,8 +928,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Poppy field</h3>
-        <ul class="reads"><li>chroma −67%</li><li>contrast +25%</li></ul>
         <p>Selective colour, not a filter. The field goes back to green and grey; only the flowers she is holding keep their red, so the eye goes where the picture wants it.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>chroma −67%</li><li>contrast +25%</li></ul></div>
       </div>
     </article>
     <article class="work">
@@ -926,8 +943,8 @@ footer .wrap{
       </div>
       <div class="meta">
         <h3>Wave, breaking</h3>
-        <ul class="reads"><li>a* +7.9 → −3.2</li><li>chroma −42%</li><li>contrast +8%</li></ul>
         <p>Spray frozen at the moment it breaks. The cast came off the water and the sky went back to blue; the spray keeps its edges because the contrast was added locally, not across the frame.</p>
+        <div class="measured"><span>Measured</span><ul class="reads"><li>a* +7.9 → −3.0</li><li>chroma −40%</li><li>contrast +8%</li></ul></div>
       </div>
     </article>
   </section>
@@ -964,6 +981,8 @@ footer .wrap{
         <p>Fifteen years of never missing one - most recently running CRM operations, where the
           delivery either goes out on schedule or it does not go out at all. That habit is as much of
           the offer as the grading is.</p>
+        <p class="ask">Have a series to finish?</p>
+        <p class="cta"><a href="mailto:iampranka@gmail.com?subject=Colour%20grading%20enquiry">Get in touch <i>&#8599;</i></a></p>
       </div>
       <div class="card">
         <dl>
