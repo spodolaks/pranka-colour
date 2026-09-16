@@ -118,7 +118,13 @@ h1{
   border-bottom:1px solid var(--rule); position:sticky; top:env(safe-area-inset-top,0px); z-index:5;
   background:color-mix(in srgb, var(--ground) 92%, transparent); backdrop-filter:blur(8px);
 }
-.toc .wrap{display:flex; overflow-x:auto; scrollbar-width:none}
+.toc .wrap{
+  display:flex; overflow-x:auto; scrollbar-width:none;
+  /* if the bar still overflows on a narrow screen, fade the right edge so it is
+     visible that there is more to scroll to */
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 26px),transparent);
+          mask-image:linear-gradient(to right,#000 calc(100% - 26px),transparent);
+}
 .toc .wrap::-webkit-scrollbar{display:none}
 .toc a{
   white-space:nowrap; text-decoration:none; padding:13px 0 12px; margin-right:24px;
@@ -333,7 +339,7 @@ footer .wrap{
   </div>
 </section>
 
-<nav class="toc" aria-label="Sections"><div class="wrap"><a href="#s01">01 &middot; One look across a whole set</a><a href="#s02">02 &middot; Before and after</a><a href="#s03">03 &middot; Colour casts and mixed light</a><a href="#s04">04 &middot; Portraits on location</a><a href="#s05">05 &middot; Landscape, travel and drone</a><a href="#s06">06 &middot; Detail, at full resolution</a><a href="#s07">07 &middot; Colour as the decision</a></div></nav>
+<nav class="toc" aria-label="Sections"><div class="wrap"><a href="#s01">01 &middot; Whole sets</a><a href="#s02">02 &middot; Before/after</a><a href="#s03">03 &middot; Colour casts</a><a href="#s04">04 &middot; Portraits</a><a href="#s05">05 &middot; Landscape</a><a href="#s06">06 &middot; Detail</a><a href="#s07">07 &middot; Colour decisions</a></div></nav>
 
 <main>
   <section class="chapter" id="s01">

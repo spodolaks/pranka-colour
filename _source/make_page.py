@@ -412,7 +412,13 @@ for num, title, intro, items in SECTIONS:
 {blocks}
   </section>""")
 
-NAV = "".join(f'<a href="#s{n}">{n} &middot; {t}</a>' for n, t, _, _ in SECTIONS)
+# Short labels for the sticky chapter bar. The full section titles overflow the
+# bar below about 1700px and the last entries get clipped, so the nav carries its
+# own abbreviations. Keys must match the section numbers in SECTIONS.
+NAV_SHORT = {"01": "Whole sets", "02": "Before/after", "03": "Colour casts",
+             "04": "Portraits", "05": "Landscape", "06": "Detail",
+             "07": "Colour decisions"}
+NAV = "".join(f'<a href="#s{n}">{n} &middot; {NAV_SHORT.get(n, t)}</a>' for n, t, _, _ in SECTIONS)
 shell = open("/home/claude/page_shell.html", encoding="utf-8").read()
 out = shell.replace("<!--SECTIONS-->", "\n".join(body)).replace("<!--NAV-->", NAV)
 open("/home/claude/site/index.html", "w", encoding="utf-8").write(out)

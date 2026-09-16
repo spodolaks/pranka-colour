@@ -113,7 +113,13 @@ h1{
   border-bottom:1px solid var(--rule); position:sticky; top:env(safe-area-inset-top,0px); z-index:5;
   background:color-mix(in srgb, var(--ground) 92%, transparent); backdrop-filter:blur(8px);
 }
-.toc .wrap{display:flex; overflow-x:auto; scrollbar-width:none}
+.toc .wrap{
+  display:flex; overflow-x:auto; scrollbar-width:none;
+  /* if the bar still overflows on a narrow screen, fade the right edge so it is
+     visible that there is more to scroll to */
+  -webkit-mask-image:linear-gradient(to right,#000 calc(100% - 26px),transparent);
+          mask-image:linear-gradient(to right,#000 calc(100% - 26px),transparent);
+}
 .toc .wrap::-webkit-scrollbar{display:none}
 .toc a{
   white-space:nowrap; text-decoration:none; padding:13px 0 12px; margin-right:24px;
