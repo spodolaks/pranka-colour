@@ -150,12 +150,16 @@ section{padding-block:clamp(64px,9vw,110px); border-top:1px solid var(--rule)}
 .ghead .s{font:300 13.5px/1.4 var(--f-sans); color:var(--ink3); max-width:52ch}
 .grid{display:grid; gap:10px; grid-template-columns:repeat(2,1fr)}
 .grid.wide{grid-template-columns:repeat(2,1fr)}
-@media (min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
+.grid.land{grid-template-columns:repeat(2,1fr)}
+@media (min-width:700px){
+  .grid{grid-template-columns:repeat(4,1fr)}
+  .grid.land{grid-template-columns:repeat(3,1fr)}
+}
 .shot{
   position:relative; margin:0; background:var(--sunk); overflow:hidden; cursor:zoom-in;
   aspect-ratio:4/5;
 }
-.grid.wide .shot{aspect-ratio:3/2}
+.grid.wide .shot,.grid.land .shot{aspect-ratio:3/2}
 .shot img{width:100%; height:100%; object-fit:cover; transition:transform .5s cubic-bezier(.2,.7,.3,1), opacity .3s}
 .shot:hover img{transform:scale(1.03); opacity:.9}
 
@@ -172,8 +176,8 @@ section{padding-block:clamp(64px,9vw,110px); border-top:1px solid var(--rule)}
 .about .facts li{padding:11px 0; border-bottom:1px solid var(--rule); display:grid;
                  grid-template-columns:76px 1fr; gap:16px; font-size:14.5px; color:var(--ink2)}
 .about .facts span{font:400 11px/1.6 var(--f-mono); letter-spacing:.1em; color:var(--ink3)}
-.portrait{aspect-ratio:4/5; background:var(--sunk); overflow:hidden}
-.portrait img{width:100%; height:100%; object-fit:cover; filter:grayscale(1)}
+.portrait{aspect-ratio:3/2; background:var(--sunk); overflow:hidden}
+.portrait img{width:100%; height:100%; object-fit:cover}
 
 /* ---------- contact ---------- */
 #contact{background:var(--panel)}
@@ -248,6 +252,7 @@ footer a:hover{color:var(--olive)}
     <div class="hero-meta">
       <a class="btn" href="#formats">форматы съёмки</a>
       <a class="btn ghost" href="#contact">записаться</a>
+      <a class="btn ghost" href="https://www.instagram.com/pranka.vue/" target="_blank" rel="noopener">instagram</a>
     </div>
   </div>
 </header>
@@ -334,7 +339,7 @@ footer a:hover{color:var(--olive)}
 
     <div class="gset">
       <div class="ghead">
-        <div class="t">свет и тень · портрет</div>
+        <div class="t">raw · свет и тень</div>
         <div class="s">один источник, много тишины. кадры, где человек перестаёт изображать себя.</div>
       </div>
       <div class="grid wide">
@@ -347,35 +352,82 @@ footer a:hover{color:var(--olive)}
 
     <div class="gset">
       <div class="ghead">
-        <div class="t">истории</div>
-        <div class="s">съёмка как рассказ: одно состояние держится через весь набор кадров.</div>
+        <div class="t">film walk · 36 кадров, один человек</div>
+        <div class="s">одна плёнка, один день. ничего не переснять: что попало в кадр, то и осталось.</div>
       </div>
-      <div class="grid">
-        <figure class="shot"><img loading="lazy" src="img/story-1.jpg" alt="Портрет, лицо закрыто бумагой"></figure>
-        <figure class="shot"><img loading="lazy" src="img/story-2.jpg" alt="Фигура на камне у воды"></figure>
-        <figure class="shot"><img loading="lazy" src="img/story-3.jpg" alt="Портрет в чёрном на фоне равнины"></figure>
-        <figure class="shot"><img loading="lazy" src="img/story-4.jpg" alt="Фигура в свете заката"></figure>
-        <figure class="shot"><img loading="lazy" src="img/story-5.jpg" alt="Фигура на мшистом камне"></figure>
-        <figure class="shot"><img loading="lazy" src="img/story-6.jpg" alt="Фигура в лесу"></figure>
-        <figure class="shot"><img loading="lazy" src="img/story-7.jpg" alt="Белое платье у стогов в тумане"></figure>
-        <figure class="shot"><img loading="lazy" src="img/story-8.jpg" alt="Движение у стогов в тумане"></figure>
+      <div class="grid land">
+        <figure class="shot"><img loading="lazy" src="img/fb-1.jpg" alt="Два лица в расфокусе, плёнка"></figure>
+        <figure class="shot"><img loading="lazy" src="img/fb-2.jpg" alt="Портрет сквозь листву"></figure>
+        <figure class="shot"><img loading="lazy" src="img/fb-3.jpg" alt="Крупный портрет, плёнка"></figure>
+        <figure class="shot"><img loading="lazy" src="img/fb-4.jpg" alt="Человек на скамейке"></figure>
+        <figure class="shot"><img loading="lazy" src="img/fb-5.jpg" alt="Фигура в конце аллеи"></figure>
+        <figure class="shot"><img loading="lazy" src="img/fb-6.jpg" alt="Портрет в темноте, плёнка"></figure>
       </div>
     </div>
 
     <div class="gset">
       <div class="ghead">
-        <div class="t">концепт</div>
-        <div class="s">бумажные маски в горах: серия, собранная из одного света и одного цвета.</div>
+        <div class="t">film walk · улица, ночь, поездка</div>
+        <div class="s">цвет плёнки как он есть - без коррекции под «правильно».</div>
+      </div>
+      <div class="grid land">
+        <figure class="shot"><img loading="lazy" src="img/fc-1.jpg" alt="Ночная улица, огонь"></figure>
+        <figure class="shot"><img loading="lazy" src="img/fc-2.jpg" alt="Лицо в боке ночных огней"></figure>
+        <figure class="shot"><img loading="lazy" src="img/fc-3.jpg" alt="Портрет на фоне неба"></figure>
+        <figure class="shot"><img loading="lazy" src="img/fc-4.jpg" alt="Смаз в метро"></figure>
+        <figure class="shot"><img loading="lazy" src="img/fc-5.jpg" alt="Фигура в подворотне после дождя"></figure>
+        <figure class="shot"><img loading="lazy" src="img/fc-6.jpg" alt="Тёмный интерьер против света"></figure>
+      </div>
+    </div>
+
+    <div class="gset">
+      <div class="ghead">
+        <div class="t">photo therapy · состояние</div>
+        <div class="s">съёмка-проживание: образ как способ прожить, а не спрятать.</div>
       </div>
       <div class="grid">
+        <figure class="shot"><img loading="lazy" src="img/th-1.jpg" alt="Портрет с закрытыми глазами среди веток"></figure>
+        <figure class="shot"><img loading="lazy" src="img/th-2.jpg" alt="Силуэт с ветками в руках"></figure>
+        <figure class="shot"><img loading="lazy" src="img/th-3.jpg" alt="Волосы и свет, чёрно-белый кадр"></figure>
+        <figure class="shot"><img loading="lazy" src="img/th-4.jpg" alt="Фигура у стены в светлом платье"></figure>
+        <figure class="shot"><img loading="lazy" src="img/th-5.jpg" alt="Фигура в темноте у стены"></figure>
+        <figure class="shot"><img loading="lazy" src="img/th-6.jpg" alt="Портрет в движении"></figure>
+        <figure class="shot"><img loading="lazy" src="img/th-7.jpg" alt="Портрет среди веток"></figure>
+        <figure class="shot"><img loading="lazy" src="img/th-8.jpg" alt="Ветки перед лицом"></figure>
+      </div>
+    </div>
+
+    <div class="gset">
+      <div class="ghead">
+        <div class="t">content session · образ</div>
+        <div class="s">визуал для проекта или страницы: серия кадров в одном свете и одном характере.</div>
+      </div>
+      <div class="grid">
+        <figure class="shot"><img loading="lazy" src="img/cs-1.jpg" alt="Ткань на лице, портрет у стены"></figure>
+        <figure class="shot"><img loading="lazy" src="img/cs-2.jpg" alt="Портрет с тканью, фактура стены"></figure>
+        <figure class="shot"><img loading="lazy" src="img/cs-3.jpg" alt="Волосы закрывают лицо"></figure>
+        <figure class="shot"><img loading="lazy" src="img/cs-4.jpg" alt="Портрет с тканью, поворот головы"></figure>
+        <figure class="shot"><img loading="lazy" src="img/cs-5.jpg" alt="Движение у стены переулка"></figure>
+        <figure class="shot"><img loading="lazy" src="img/cs-6.jpg" alt="Прыжок в переулке"></figure>
+        <figure class="shot"><img loading="lazy" src="img/cs-7.jpg" alt="Жест на фоне брусчатки"></figure>
+        <figure class="shot"><img loading="lazy" src="img/cs-8.jpg" alt="Фигура у стены, вид со спины"></figure>
+      </div>
+    </div>
+
+    <div class="gset">
+      <div class="ghead">
+        <div class="t">серии и проекты</div>
+        <div class="s">«маски» в горах и финская серия - съёмка, собранная как целое.</div>
+      </div>
+      <div class="grid">
+        <figure class="shot"><img loading="lazy" src="img/story-1.jpg" alt="Портрет, лицо закрыто бумагой"></figure>
+        <figure class="shot"><img loading="lazy" src="img/story-3.jpg" alt="Портрет в чёрном на фоне равнины"></figure>
+        <figure class="shot"><img loading="lazy" src="img/story-5.jpg" alt="Фигура на мшистом камне"></figure>
+        <figure class="shot"><img loading="lazy" src="img/story-7.jpg" alt="Белое платье у стогов в тумане"></figure>
         <figure class="shot"><img loading="lazy" src="img/mask-1.jpg" alt="Маска лисы на горном лугу"></figure>
         <figure class="shot"><img loading="lazy" src="img/mask-2.jpg" alt="Маска орикса на снегу"></figure>
         <figure class="shot"><img loading="lazy" src="img/mask-3.jpg" alt="Бумажная маска, портрет у воды"></figure>
         <figure class="shot"><img loading="lazy" src="img/mask-4.jpg" alt="Маска барана на склоне"></figure>
-        <figure class="shot"><img loading="lazy" src="img/mask-5.jpg" alt="Маска медведя в лесу"></figure>
-        <figure class="shot"><img loading="lazy" src="img/mask-7.jpg" alt="Маска медведя, портрет в лесу"></figure>
-        <figure class="shot"><img loading="lazy" src="img/mask-8.jpg" alt="Камень в воде, деталь серии"></figure>
-        <figure class="shot"><img loading="lazy" src="img/mask-6.jpg" alt="Вода и камень, деталь серии"></figure>
       </div>
     </div>
   </div>
@@ -410,7 +462,7 @@ footer a:hover{color:var(--olive)}
           <li><span>город</span>рига, латвия · съёмки по латвии и в поездках</li>
         </ul>
       </div>
-      <figure class="portrait"><img loading="lazy" src="img/tex-2.jpg" alt="Свет и тень, фрагмент серии"></figure>
+      <figure class="portrait"><img loading="lazy" src="img/me.jpg" alt="Мария снимает своё отражение в зеркале"></figure>
     </div>
   </div>
 </section>
