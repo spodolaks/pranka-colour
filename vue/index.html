@@ -77,8 +77,8 @@ section{padding-block:clamp(64px,9vw,110px); border-top:1px solid var(--rule)}
 }
 .hero .wrap{position:relative; width:100%; padding-block:clamp(44px,8vw,86px)}
 .mark{margin:0 0 26px; line-height:0}
-.mark .wm{width:clamp(210px,42vw,460px); height:auto; display:block; color:var(--ink)}
-.nav .home .wm{width:52px; height:auto; display:block; color:var(--ink)}
+.mark .wm{width:clamp(150px,28vw,320px); height:auto; display:block; color:var(--ink)}
+.nav .home .wm{width:38px; height:auto; display:block; color:var(--ink)}
 .tag{
   font:300 clamp(19px,2.8vw,28px)/1.3 var(--f-sans); letter-spacing:-.015em;
   margin:0 0 10px; color:var(--ink); max-width:22ch;
@@ -160,8 +160,6 @@ section{padding-block:clamp(64px,9vw,110px); border-top:1px solid var(--rule)}
   aspect-ratio:4/5;
 }
 .grid.wide .shot,.grid.land .shot{aspect-ratio:3/2}
-.grid.fit .shot{aspect-ratio:1/1; background:transparent; cursor:zoom-in}
-.grid.fit .shot img{object-fit:contain}
 .shot img{width:100%; height:100%; object-fit:cover; transition:transform .5s cubic-bezier(.2,.7,.3,1), opacity .3s}
 .shot:hover img{transform:scale(1.03); opacity:.9}
 
@@ -382,6 +380,23 @@ footer a:hover{color:var(--olive)}
 
     <div class="gset">
       <div class="ghead">
+        <div class="t">«сквозь ветки» · студийный портрет</div>
+        <div class="s">одна студийная съёмка: ветки, один источник света и лицо, которое перестало держать лицо.</div>
+      </div>
+      <div class="grid">
+        <figure class="shot"><img loading="lazy" src="img/kr-1.jpg" alt="Портрет с закрытыми глазами среди веток"></figure>
+        <figure class="shot"><img loading="lazy" src="img/kr-2.jpg" alt="Силуэт с ветками в поднятых руках"></figure>
+        <figure class="shot"><img loading="lazy" src="img/kr-3.jpg" alt="Волосы и свет, чёрно-белый кадр"></figure>
+        <figure class="shot"><img loading="lazy" src="img/kr-4.jpg" alt="Фигура у стены в светлом платье"></figure>
+        <figure class="shot"><img loading="lazy" src="img/kr-5.jpg" alt="Фигура в темноте у стены"></figure>
+        <figure class="shot"><img loading="lazy" src="img/kr-6.jpg" alt="Портрет в движении, тень на стене"></figure>
+        <figure class="shot"><img loading="lazy" src="img/kr-7.jpg" alt="Портрет среди веток"></figure>
+        <figure class="shot"><img loading="lazy" src="img/kr-8.jpg" alt="Ветки перед лицом"></figure>
+      </div>
+    </div>
+
+    <div class="gset">
+      <div class="ghead">
         <div class="t">secret room</div>
         <div class="s">камерная серия: тело, свет и тишина. снято близко, при одном источнике.</div>
       </div>
@@ -402,7 +417,7 @@ footer a:hover{color:var(--olive)}
         <div class="t">content session · образ</div>
         <div class="s">визуал идеи: маска, дождь из фольги, один свет - серия, собранная под смысл.</div>
       </div>
-      <div class="grid fit">
+      <div class="grid">
         <figure class="shot"><img loading="lazy" src="img/cs-1.jpg" alt="Фигура за блестящей завесой"></figure>
         <figure class="shot"><img loading="lazy" src="img/cs-2.jpg" alt="Завеса перед лицом, тёмный фон"></figure>
         <figure class="shot"><img loading="lazy" src="img/cs-3.jpg" alt="Движение серебряной завесы"></figure>
