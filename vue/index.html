@@ -480,7 +480,11 @@ footer a:hover{color:var(--olive)}
         <p class="formnote" style="margin-top:18px">на письма отвечаю в течение пары дней. если формат не мой - скажу честно и подскажу, к кому пойти.</p>
       </div>
 
-      <form id="book" novalidate>
+      <form id="book" action="https://formsubmit.co/iampranka@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="vue - заявка на съёмку">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://pranka.id.lv/vue/?sent=1">
         <label>имя
           <input type="text" name="name" autocomplete="name" required>
         </label>
@@ -533,32 +537,14 @@ footer a:hover{color:var(--olive)}
   lb.addEventListener('click',close);
   document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
 
-  /* booking form */
-  var form=document.getElementById('book'), st=document.getElementById('status');
-  var ENDPOINT='https://formsubmit.co/ajax/iampranka@gmail.com';
-  form.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(form._honey.value){return;}
-    var d={};
-    ['name','contact','format','message'].forEach(function(k){d[k]=form[k].value.trim();});
-    if(!d.name||!d.contact||!d.message){st.className='status err'; st.textContent='заполни имя, контакт и пару слов.'; return;}
-    d._subject='vue - заявка на съёмку ('+d.format+')';
-    d._template='table'; d._captcha='false';
-    var btn=form.querySelector('button');
-    btn.disabled=true; st.className='status'; st.textContent='отправляю…';
-    fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
-      .then(function(r){return r.json();})
-      .then(function(j){
-        if(j && (j.success==='true'||j.success===true)){
-          st.className='status ok'; st.textContent='получено. отвечу в ближайшие дни.'; form.reset();
-        }else{throw new Error('no');}
-      })
-      .catch(function(){
-        st.className='status err';
-        st.innerHTML='не отправилось. напиши на <a href="mailto:iampranka@gmail.com?subject='+encodeURIComponent(d._subject)+'&body='+encodeURIComponent(d.message+'\n\n'+d.name+' · '+d.contact)+'">iampranka@gmail.com</a>';
-      })
-      .then(function(){btn.disabled=false;});
-  });
+  /* booking form: plain POST to formsubmit, success comes back as ?sent=1 */
+  var st=document.getElementById('status');
+  if(/[?&]sent=1/.test(location.search)){
+    st.className='status ok';
+    st.textContent='получено. отвечу в ближайшие дни.';
+    var c=document.getElementById('contact');
+    if(c&&c.scrollIntoView){c.scrollIntoView();}
+  }
 })();
 </script>
 </body>
