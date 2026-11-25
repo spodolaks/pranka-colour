@@ -1,7 +1,8 @@
 (()=>{
 // sliders: every photo (first and last too) sits centred; clicking a photo at the edge moves to it
 document.querySelectorAll('.car').forEach(c=>{const t=c.querySelector('.track'),items=[...t.children],cc=c.querySelector('.cc');if(!items.length)return;
-  const pad=()=>{const w=t.clientWidth;t.style.paddingLeft=Math.max(0,(w-items[0].offsetWidth)/2)+'px';t.style.paddingRight=Math.max(0,(w-items[items.length-1].offsetWidth)/2)+'px'};
+  const sp=[document.createElement('i'),document.createElement('i')];sp.forEach(x=>x.style.flex='none');t.prepend(sp[0]);t.append(sp[1]);
+  const pad=()=>{const w=t.clientWidth;sp[0].style.width=Math.max(0,(w-items[0].offsetWidth)/2-10)+'px';sp[1].style.width=Math.max(0,(w-items[items.length-1].offsetWidth)/2-10)+'px'};
   pad();addEventListener('resize',pad);
   if(items.length<2)return;
   // wide click zones on both sides
