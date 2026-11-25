@@ -123,3 +123,4 @@ form .btn{background:var(--ink);color:#fff;text-transform:uppercase;font-family:
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}.tiles a{display:block;aspect-ratio:3/2;background:var(--hover);cursor:zoom-in}.tiles img{width:100%;height:100%;object-fit:cover}
 @media(max-width:560px){.tiles{grid-template-columns:repeat(2,1fr)}}
 .text .yt{margin:0 auto}
+.og.flexg{display:flex;flex-wrap:wrap;align-items:center}.og.flexg .oc{float:none;padding:10px 8px}
