@@ -4,6 +4,8 @@ document.querySelectorAll('.car').forEach(c=>{const t=c.querySelector('.track'),
   const pad=()=>{const w=t.clientWidth;t.style.paddingLeft=Math.max(0,(w-items[0].offsetWidth)/2)+'px';t.style.paddingRight=Math.max(0,(w-items[items.length-1].offsetWidth)/2)+'px'};
   pad();addEventListener('resize',pad);
   if(items.length<2)return;
+  // wide click zones on both sides
+  ['l','r'].forEach(d=>{const z=document.createElement('button');z.className='zone '+d;z.setAttribute('aria-label',d==='l'?'Previous photo':'Next photo');z.onclick=()=>{go(cur()+(d==='l'?-1:1));stop()};c.appendChild(z)});
   const centre=a=>a.offsetLeft-t.offsetLeft+a.offsetWidth/2;
   const cur=()=>{const mid=t.scrollLeft+t.clientWidth/2;let b=0,d=1e9;items.forEach((a,i)=>{const x=Math.abs(centre(a)-mid);if(x<d){d=x;b=i}});return b};
   const go=i=>{i=(i+items.length)%items.length;t.scrollTo({left:centre(items[i])-t.clientWidth/2,behavior:'smooth'})};
@@ -21,6 +23,8 @@ document.querySelectorAll('.car').forEach(c=>{const t=c.querySelector('.track'),
     c.addEventListener('mouseenter',pause);c.addEventListener('mouseleave',play);
     t.addEventListener('pointerdown',stop);t.addEventListener('wheel',stop,{passive:true});t.addEventListener('touchstart',stop,{passive:true});}
 });
+// YouTube previews: use the sharp picture, fall back when a video has none
+document.querySelectorAll('.yt img').forEach(i=>{const fix=()=>{if(i.naturalWidth&&i.naturalWidth<200&&!i.dataset.fb){i.dataset.fb=1;i.src=i.src.replace('maxresdefault','hqdefault')}};i.complete?fix():i.addEventListener('load',fix)});
 // YouTube: load the player only when the picture is clicked
 document.querySelectorAll('.yt').forEach(b=>b.addEventListener('click',()=>{const f=document.createElement('iframe');
   f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1'+(b.dataset.list?'&list='+b.dataset.list:'');f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title='Video';b.replaceChildren(f);b.style.cursor='default'},{once:true}));

@@ -1,8 +1,8 @@
 (()=>{const links=[...document.querySelectorAll('a[data-lb]')];if(!links.length)return;
 const lb=document.createElement('div');lb.id='lb';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');
 lb.innerHTML='<button class="x" aria-label="Close">&times;</button><button class="p" aria-label="Previous">&#8592;</button><img alt=""><button class="n" aria-label="Next">&#8594;</button><div class="c"></div>';
-document.body.appendChild(lb);const img=lb.querySelector('img'),c=lb.querySelector('.c');let i=0;
-const show=k=>{i=(k+links.length)%links.length;img.src=links[i].href;c.textContent=(i+1)+' / '+links.length+(links[i].dataset.title?'  -  '+links[i].dataset.title:'');new Image().src=links[(i+1)%links.length].href};
+document.body.appendChild(lb);const img=lb.querySelector('img'),c=lb.querySelector('.c');const cap=document.createElement('div');cap.className='lt';lb.appendChild(cap);let i=0;
+const show=k=>{i=(k+links.length)%links.length;img.src=links[i].href;c.textContent=(i+1)+' / '+links.length+(links[i].dataset.title?'  -  '+links[i].dataset.title:'');c.title=links[i].dataset.text||'';cap.textContent=links[i].dataset.text||'';new Image().src=links[(i+1)%links.length].href};
 const open=k=>{show(k);lb.classList.add('open');document.body.style.overflow='hidden'};
 const close=()=>{lb.classList.remove('open');document.body.style.overflow='';img.removeAttribute('src')};
 links.forEach((a,k)=>a.addEventListener('click',e=>{e.preventDefault();open(k)}));
